@@ -1,0 +1,29 @@
+{
+  "widgetTypeGroups": [
+    {
+      "key": "group1",
+      "value": "group1",
+      "widgetTypes": [
+        {
+          "key": "Link",
+          "value": "Link",
+          "defaultModel": {
+            "links": []
+          }
+        },
+        {
+          "key": "Chart",
+          "value": "Chart",
+          "defaultModel": {}
+        },
+        {
+          "key": "Todo",
+          "value": "Todo",
+          "defaultModel": {
+            "items": []
+          }
+        }
+      ]
+    }
+  ]
+}

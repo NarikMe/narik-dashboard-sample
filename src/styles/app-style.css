@@ -1,0 +1,34 @@
+#toast-container>div {
+  opacity: 1;
+}
+
+
+[dir=rtl] .layout-container nb-sidebar.left {
+  order: initial !important;
+}
+
+nb-layout-header.fixed {
+  z-index: 1000 !important;
+}
+
+
+.mat-form-field-label {
+  height: 30px;
+}
+
+.mat-form-field-infix {
+  width: initial !important;
+}
+
+narik-button {
+  cursor: pointer;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+a:hover {
+  color: #0056b3;
+  text-decoration: none;
+}

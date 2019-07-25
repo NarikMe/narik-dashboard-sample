@@ -1,0 +1,25 @@
+:host {
+  width: 100%;
+}
+
+.row-container {
+  position: relative;
+  min-height: 100px;
+}
+
+.row-toolbar {
+  position: absolute;
+  top: -5px;
+  left: 6px;
+  display: flex;
+}
+
+.row-content {
+  min-height: 100px;
+  margin-top: 20px;
+}
+
+.row-menu {
+  cursor: pointer;
+  margin-top: 5px;
+}

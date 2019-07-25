@@ -1,0 +1,60 @@
+import { Component, Input, OnInit, ViewChild, ElementRef } from "@angular/core";
+
+import { DashboardRow } from "../../dashboard-share/base/dashboard-row";
+import { CommandHost, CommandInfo } from "narik-infrastructure";
+import { Observable } from "rxjs/internal/Observable";
+import { DashboardService } from "../../dashboard-share/service/dashboard.service";
+import { WidgetViewType } from "../../dashboard-share/base/widget-view-type";
+
+@Component({
+  selector: "dashboard-viewer",
+  templateUrl: "dashboard-viewer.component.html",
+  styleUrls: ["dashboard-viewer.component.css"]
+})
+export class DashboardViewerComponent implements OnInit, CommandHost {
+  change: Observable<any>;
+
+  @Input()
+  rows: DashboardRow[] = [];
+
+  @ViewChild("importFile", { static: false })
+  importFile: ElementRef<any>;
+
+  constructor(private dashboardService: DashboardService) {}
+
+  ngOnInit() {}
+
+  processCommand(cmd: CommandInfo) {
+    if (cmd.commandKey === "import") {
+      this.importFile.nativeElement.click();
+    }
+  }
+
+  import(e) {
+    if (e.target.files[0]) {
+      const that = this;
+      const reader = new FileReader();
+      reader.readAsText(e.target.files[0], "UTF-8");
+      reader.onload = evt => {
+        const newModel = JSON.parse((evt.target as any).result)
+          .rows as DashboardRow[];
+        this.applyComponentTypes(newModel);
+        this.rows = newModel;
+      };
+      reader.onerror = evt => {};
+    }
+  }
+  applyComponentTypes(rows: DashboardRow[]) {
+    for (const row of rows) {
+      for (const cell of row.cells) {
+        if (cell.widgetInfo && cell.widgetInfo.widgetTypeKey) {
+          cell.widgetInfo.widgetType = this.dashboardService.widgetComponentType(
+            undefined,
+            cell.widgetInfo.widgetTypeKey,
+            WidgetViewType.View
+          );
+        }
+      }
+    }
+  }
+}

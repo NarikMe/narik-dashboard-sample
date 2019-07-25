@@ -1,0 +1,30 @@
+{
+  "dashboard": {
+    "dashboard": "Dashboard",
+    "dashboardDesign":"Design Dashboard",
+    "row-size-is-full": "Can not add cell to this row!",
+    "confirm-remove-row": "Are you sure to remove the row?",
+    "add_cell": "Add Cell",
+    "add_row": "Add Row",
+    "add_row_2": "Add Row With Two Columns",
+    "add_row_3": "Add Row With Three Columns",
+    "add_row_4": "Add Row With Four Columns",
+    "remove_row": "Remove Row",
+    "config": "Config Widget",
+    "select-widget-type": "Select Widget Type",
+    "widgetTypeGroup": "Widget Type Group",
+    "widgetType": "Widget Type ",
+    "increase_cell": "Increase Cell Size",
+    "decrease_cell": "Decrease Cell Size",
+    "remove_cell": "Remove",
+    "clear_cell": "Clear",
+    "import_cell": "Import",
+    "export_cell": "Export",
+    "design": "Design Widget",
+    "title": "Title",
+    "titles": {
+      "link": "Link",
+      "chart": "Chart"
+    }
+  }
+}
