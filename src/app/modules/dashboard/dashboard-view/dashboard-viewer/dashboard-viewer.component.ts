@@ -14,11 +14,20 @@ import { WidgetViewType } from "../../dashboard-share/base/widget-view-type";
 export class DashboardViewerComponent implements OnInit, CommandHost {
   change: Observable<any>;
 
-  @Input()
-  rows: DashboardRow[] = [];
-
   @ViewChild("importFile", { static: false })
   importFile: ElementRef<any>;
+
+  _rows: DashboardRow[] = [];
+  @Input()
+  set rows(value: DashboardRow[]) {
+    if (value) {
+      this.applyComponentTypes(value);
+    }
+    this._rows = value;
+  }
+  get rows(): DashboardRow[] {
+    return this._rows;
+  }
 
   constructor(private dashboardService: DashboardService) {}
 
@@ -38,7 +47,7 @@ export class DashboardViewerComponent implements OnInit, CommandHost {
       reader.onload = evt => {
         const newModel = JSON.parse((evt.target as any).result)
           .rows as DashboardRow[];
-        this.applyComponentTypes(newModel);
+
         this.rows = newModel;
       };
       reader.onerror = evt => {};

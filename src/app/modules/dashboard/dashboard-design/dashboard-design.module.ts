@@ -3,7 +3,8 @@ import {
   NarikMatToolbarModule,
   NarikMatButtonModule,
   NarikMatSelectModule,
-  NarikMatInputModule
+  NarikMatInputModule,
+  NarikMatCheckBoxModule
 } from "narik-ui-material";
 
 import { CommonModule } from "@angular/common";
@@ -19,7 +20,14 @@ import { TranslateModule } from "@ngx-translate/core";
 import { FormsModule } from "@angular/forms";
 import { SelectWidgetTypeComponent } from "./select-widget-type/select-widget-type.component";
 import { NarikCommonModule } from "narik-common";
-import { MatIconModule } from "@angular/material";
+import {
+  MatIconModule,
+  MatFormFieldModule,
+  MatSelectModule
+} from "@angular/material";
+
+import { MatTabsModule } from "@angular/material/tabs";
+
 import { MatListModule } from "@angular/material/list";
 
 @NgModule({
@@ -28,12 +36,16 @@ import { MatListModule } from "@angular/material/list";
     FormsModule,
     MatCardModule,
     MatIconModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatTabsModule,
     NarikCommonModule,
     NarikMatBusyIndicatorModule,
     NarikMatToolbarModule,
     NarikMatButtonModule,
     NarikMatSelectModule,
     NarikMatInputModule,
+    NarikMatCheckBoxModule,
     MatListModule,
     TranslateModule,
     DragDropModule

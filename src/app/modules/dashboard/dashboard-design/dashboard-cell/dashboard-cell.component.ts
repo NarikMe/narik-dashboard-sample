@@ -158,12 +158,15 @@ export class DashboardCellComponent implements OnInit, CommandHost {
             result.componentInstance.widgetType,
             WidgetViewType.View
           );
+
+          const widgetModel = widgetTypeObject.defaultModel
+            ? cloneDeep(widgetTypeObject.defaultModel)
+            : {};
+          widgetModel.isActive = true;
           this.cell.widgetInfo = {
             widgetTypeKey: result.componentInstance.widgetType,
             widgetType,
-            widgetModel: widgetTypeObject.defaultModel
-              ? cloneDeep(widgetTypeObject.defaultModel)
-              : {}
+            widgetModel
           };
           this.openDesigner();
         }

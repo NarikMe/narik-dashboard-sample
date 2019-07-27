@@ -8,10 +8,10 @@ In this project , I create a dashboard system (designer and viewer) with multipl
 
 - [x] Link
 - [x] Todo List
-- [ ] Chart
+- [x] Chart
 - [ ] Map
 - [ ] Data
-- [ ] Gauge
+- [x] Gauge
 - [ ] DateTime
 - [ ] ....
 

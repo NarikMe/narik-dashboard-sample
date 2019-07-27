@@ -32,3 +32,8 @@ a:hover {
   color: #0056b3;
   text-decoration: none;
 }
+
+narik-checkbox {
+  display: block;
+}
+

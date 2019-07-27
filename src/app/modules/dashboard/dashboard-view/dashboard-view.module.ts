@@ -14,6 +14,7 @@ import {
   NarikMatBusyIndicatorModule
 } from "narik-ui-material";
 import { MatListModule } from "@angular/material/list";
+import { NgxChartsModule } from "@swimlane/ngx-charts";
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import { MatListModule } from "@angular/material/list";
     NarikMatToolbarModule,
     NarikMatBusyIndicatorModule,
     MatListModule,
+    NgxChartsModule,
     RouterModule
   ],
   declarations: [

@@ -1,5 +1,6 @@
-<mat-card style="width: 100%" class="cell-container">
-  <ng-container *ngIf="cell.widgetInfo">
+<mat-card *ngIf="cell.widgetInfo && cell.widgetInfo.widgetModel && cell.widgetInfo.widgetModel.isActive"
+  style="width: 100%" class="cell-container">
+  <ng-container>
     <ng-container *narikComponentLoader="
     cell.widgetInfo.widgetType;
     bindings: {

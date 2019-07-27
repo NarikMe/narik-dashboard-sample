@@ -12,6 +12,9 @@
             {{item}}
           </mat-list-item>
         </ng-container>
+        <div class="footer">
+          {{todoItems.length}} items left.
+        </div>
       </mat-list>
     </ng-container>
     <ng-container *ngIf="!todoItems.length">

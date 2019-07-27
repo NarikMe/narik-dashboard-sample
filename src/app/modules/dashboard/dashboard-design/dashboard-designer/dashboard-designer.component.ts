@@ -16,8 +16,17 @@ import { WidgetViewType } from "../../dashboard-share/base/widget-view-type";
 export class DashboardDesignerComponent implements OnInit, CommandHost {
   change: Observable<any>;
 
+  _rows: DashboardRow[] = [];
   @Input()
-  rows: DashboardRow[] = [];
+  set rows(value: DashboardRow[]) {
+    if (value) {
+      this.applyComponentTypes(value);
+    }
+    this._rows = value;
+  }
+  get rows(): DashboardRow[] {
+    return this._rows;
+  }
 
   @ViewChild("importFile", { static: false })
   importFile: ElementRef<any>;
@@ -65,7 +74,6 @@ export class DashboardDesignerComponent implements OnInit, CommandHost {
       reader.onload = evt => {
         const newModel = JSON.parse((evt.target as any).result)
           .rows as DashboardRow[];
-        this.applyComponentTypes(newModel);
         this.rows = newModel;
       };
       reader.onerror = evt => {};
