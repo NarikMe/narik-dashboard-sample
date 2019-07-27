@@ -9,7 +9,7 @@ import { DataSourceService } from "../service/dataSource.service";
 export class WidgetDesign {
   @NarikInject(DataSourceService)
   protected dataSourceService: DataSourceService;
-
+  displayTitle = true;
   _model: WidgetModel = {};
 
   @Input()

@@ -1,0 +1,11 @@
+.date-container {
+  display: flex;
+}
+
+.center-item {
+  margin: auto;
+}
+
+.datetime-content {
+  font-weight: bold;
+}

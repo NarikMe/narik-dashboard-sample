@@ -24,7 +24,9 @@
     "title": "Title",
     "titles": {
       "link": "Link",
-      "chart": "Chart"
+      "chart": "Chart",
+      "todo": "To Do List",
+      "dateTime":"Date/Time"
     },
     "dataSource": "Data Source",
     "theme": "Theme",
@@ -83,6 +85,7 @@
     "maxRadius": "Maximum Radius",
     "angleSpan": "Angle Span",
     "startAngle": "Start Angle",
-    "showAxis": "Show Axis"
+    "showAxis": "Show Axis",
+    "format":"Format"
   }
 }

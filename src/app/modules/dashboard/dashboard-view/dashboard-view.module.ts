@@ -15,6 +15,7 @@ import {
 } from "narik-ui-material";
 import { MatListModule } from "@angular/material/list";
 import { NgxChartsModule } from "@swimlane/ngx-charts";
+import { DateFnsModule } from "ngx-date-fns";
 
 @NgModule({
   imports: [
@@ -26,7 +27,8 @@ import { NgxChartsModule } from "@swimlane/ngx-charts";
     NarikMatBusyIndicatorModule,
     MatListModule,
     NgxChartsModule,
-    RouterModule
+    RouterModule,
+    DateFnsModule.forRoot()
   ],
   declarations: [
     WIDGETS,

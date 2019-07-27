@@ -37,6 +37,13 @@
           "defaultModel": {
             "items": []
           }
+        },
+        {
+          "key": "Datetime",
+          "value": "Datetime",
+          "defaultModel": {
+            "format": "dddd Do MMM YYYY HH:mm:ss"
+          }
         }
       ]
     }
