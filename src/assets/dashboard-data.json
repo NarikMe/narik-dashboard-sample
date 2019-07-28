@@ -474,6 +474,42 @@
           "extra": { "format": "percent" }
         }
       ]
+    },
+    {
+      "key": "kpi1",
+      "metaData": {},
+      "data": {
+        "trade": 20,
+        "value": 2456,
+        "periodTitle": "Monthly"
+      }
+    },
+    {
+      "key": "kpi2",
+      "metaData": {},
+      "data": {
+        "trade": -30,
+        "value": 126875,
+        "periodTitle": "Monthly"
+      }
+    },
+    {
+      "key": "kpi3",
+      "metaData": {},
+      "data": {
+        "trade": 0,
+        "value": 79953,
+        "periodTitle": "Monthly"
+      }
+    },
+    {
+      "key": "kpi4",
+      "metaData": {},
+      "data": {
+        "trade": 10,
+        "value": 6872,
+        "periodTitle": "Monthly"
+      }
     }
   ]
 }

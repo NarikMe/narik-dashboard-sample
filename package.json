@@ -27,6 +27,7 @@
     "@nebular/theme": "^4.0.0",
     "@ngx-translate/core": "^11.0.1",
     "@swimlane/ngx-charts": "^12.0.1",
+    "angular-pipes": "^9.0.2",
     "angular2-text-mask": "^9.0.0",
     "angular2-uuid": "^1.1.1",
     "bootstrap": "^4.3.1",

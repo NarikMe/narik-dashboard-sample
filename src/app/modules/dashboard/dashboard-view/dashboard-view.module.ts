@@ -1,4 +1,4 @@
-import { MatIconModule } from "@angular/material";
+import { MatIconModule, MatChipsModule } from "@angular/material";
 import { RouterModule } from "@angular/router";
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
@@ -16,18 +16,21 @@ import {
 import { MatListModule } from "@angular/material/list";
 import { NgxChartsModule } from "@swimlane/ngx-charts";
 import { DateFnsModule } from "ngx-date-fns";
+import { NgMathPipesModule } from "angular-pipes";
 
 @NgModule({
   imports: [
     CommonModule,
     MatCardModule,
     MatIconModule,
+    MatChipsModule,
     NarikCommonModule,
     NarikMatToolbarModule,
     NarikMatBusyIndicatorModule,
     MatListModule,
     NgxChartsModule,
     RouterModule,
+    NgMathPipesModule,
     DateFnsModule.forRoot()
   ],
   declarations: [

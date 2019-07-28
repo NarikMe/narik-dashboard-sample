@@ -155,6 +155,11 @@
         </narik-input>
 
 
+        <narik-input type="number" label='{{"dashboard.containerHeight" | translate}}'
+          [(ngModel)]='model.containerHeight' name='containerHeight'>
+        </narik-input>
+
+
         <narik-input *ngIf="chart.options.includes('legendTitle')" label='{{"dashboard.legendTitle" | translate}}'
           [(ngModel)]='model.legendTitle' name='legendTitle'>
         </narik-input>
@@ -164,6 +169,19 @@
           [dataSource]='legendPositions' label='{{"dashboard.legendPosition" | translate}}'
           [(ngModel)]='model.legendPosition' name='legendPosition' [required]="true">
         </narik-select>
+
+
+        <narik-select *ngIf="chart.options.includes('curve')" [options]="selectOptions"
+          [dataSource]='curves' label='{{"dashboard.curve" | translate}}'
+          [(ngModel)]='model.curve' name='curve' [required]="true">
+        </narik-select>
+
+
+        <narik-select *ngIf="chart.options.includes('curveClosed')" [options]="selectOptions"
+          [dataSource]='closedCurves' label='{{"dashboard.closedCurve" | translate}}'
+          [(ngModel)]='model.closedCurve' name='closedCurve' [required]="true">
+        </narik-select>
+
 
         <narik-input *ngIf="chart.options.includes('showXAxisLabel')" label='{{"dashboard.xAxisLabel" | translate}}'
           [(ngModel)]='model.xAxisLabel' name='xAxisLabel'>

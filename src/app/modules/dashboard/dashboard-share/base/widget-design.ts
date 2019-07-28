@@ -1,16 +1,23 @@
 import { UUID } from "angular2-uuid";
 
 import { WidgetModel } from "./widget-model";
-import { Input } from "@angular/core";
+import { Input, OnInit } from "@angular/core";
 import { isEquivalent } from "narik-common";
 import { NarikInject } from "narik-core";
 import { DataSourceService } from "../service/dataSource.service";
+import { NarikComponent } from "narik-infrastructure";
 
-export class WidgetDesign {
+export class WidgetDesign extends NarikComponent implements OnInit {
   @NarikInject(DataSourceService)
   protected dataSourceService: DataSourceService;
   displayTitle = true;
+  needDataSource = false;
   _model: WidgetModel = {};
+  dataSources: any[] = [];
+
+  selectOptions: any = {
+    showToolbar: false
+  };
 
   @Input()
   set model(value: any) {
@@ -32,6 +39,20 @@ export class WidgetDesign {
   }
   protected exportModel(model: any): any {
     return model;
+  }
+
+  ngOnInit(): void {
+    if (this.needDataSource) {
+      this.dataSourceService.dataSourceList().subscribe(
+        x =>
+          (this.dataSources = x.map(ds => {
+            return {
+              id: ds,
+              title: ds
+            };
+          }))
+      );
+    }
   }
 
   afterModelSet() {}

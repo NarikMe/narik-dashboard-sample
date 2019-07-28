@@ -26,7 +26,7 @@
       "link": "Link",
       "chart": "Chart",
       "todo": "To Do List",
-      "dateTime":"Date/Time"
+      "dateTime": "Date/Time"
     },
     "dataSource": "Data Source",
     "theme": "Theme",
@@ -86,6 +86,9 @@
     "angleSpan": "Angle Span",
     "startAngle": "Start Angle",
     "showAxis": "Show Axis",
-    "format":"Format"
+    "format": "Format",
+    "containerHeight": "Container Height",
+    "closedCurve": "Line Interpolation",
+    "curve": "Line Interpolation"
   }
 }

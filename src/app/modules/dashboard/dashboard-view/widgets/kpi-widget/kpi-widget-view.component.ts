@@ -5,11 +5,11 @@ import { WidgetViewUi } from "src/app/templates/template.decorator";
 
 @WidgetViewUi()
 @Component({
-  templateUrl: "./todo-widget-view.component.html",
-  styleUrls: ["todo-widget-view.component.css"]
+  templateUrl: "./kpi-widget-view.component.html",
+  styleUrls: ["kpi-widget-view.component.css"]
 })
-export class TodoWidgetViewComponent extends WidgetView {
-  todoItems: any[] = [];
+export class KpiWidgetViewComponent extends WidgetView {
+  kpiInfo: any = {};
   constructor() {
     super();
   }
@@ -17,7 +17,7 @@ export class TodoWidgetViewComponent extends WidgetView {
     if (this.model.dataSource) {
       this.dataSourceService
         .dataSourceData(this.model.dataSource)
-        .subscribe(x => (this.todoItems = x));
+        .subscribe(x => (this.kpiInfo = x));
     }
   }
 }

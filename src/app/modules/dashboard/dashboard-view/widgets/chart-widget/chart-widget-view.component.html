@@ -3,7 +3,7 @@
 </ng-template>
 
 <ng-template #content>
-  <div class="p-2" [class]="model.theme || 'light'" [style.height.px]="model.height">
+  <div class="p-2" [class]="model.theme || 'light'" [style.height.px]="model.containerHeight || model.height">
     <ngx-charts-bar-vertical *ngIf="model.chartType === 'bar-vertical'" class="chart-container" [view]="view"
       [scheme]="colorScheme" [schemeType]="model.schemeType" [customColors]="customColors" [results]="chartData"
       [animations]="model.animations" [gradient]="model.gradient" [xAxis]="model.showXAxis" [yAxis]="model.showYAxis"
@@ -137,9 +137,9 @@
       (legendLabelClick)="onLegendLabelClick($event)" [gradient]="model.gradient" [xAxis]="model.showXAxis"
       [yAxis]="model.showYAxis" [showXAxisLabel]="model.showXAxisLabel" [showYAxisLabel]="model.showYAxisLabel"
       [xAxisLabel]="model.xAxisLabel" [yAxisLabel]="model.yAxisLabel" [autoScale]="model.autoScale"
-      [xScaleMin]="xScaleMin" [xScaleMax]="xScaleMax" [yScaleMin]="yScaleMin" [yScaleMax]="model.yScaleMax"
+      [xScaleMin]="model.xScaleMin" [xScaleMax]="model.xScaleMax" [yScaleMin]="model.yScaleMin" [yScaleMax]="model.yScaleMax"
       [timeline]="model.timeline" [showGridLines]="model.showGridLines" [curve]="curve"
-      [rangeFillOpacity]="rangeFillOpacity" [roundDomains]="model.roundDomains"
+      [rangeFillOpacity]="model.rangeFillOpacity" [roundDomains]="model.roundDomains"
       [tooltipDisabled]="model.tooltipDisabled" [trimXAxisTicks]="model.trimXAxisTicks"
       [trimYAxisTicks]="model.trimYAxisTicks" [rotateXAxisTicks]="model.rotateXAxisTicks"
       [maxXAxisTickLength]="model.maxXAxisTickLength" [maxYAxisTickLength]="model.maxYAxisTickLength"

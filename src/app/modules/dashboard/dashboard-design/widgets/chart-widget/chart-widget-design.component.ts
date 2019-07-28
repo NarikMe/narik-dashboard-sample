@@ -4,6 +4,7 @@ import { WidgetDesign } from "../../../dashboard-share/base/widget-design";
 import { WidgetDesignUi } from "../../../../../templates/template.decorator";
 import chartGroups from "./chartTypes";
 import { colorSets } from "@swimlane/ngx-charts/release/utils";
+import { toDtoArray } from "narik-common";
 
 @WidgetDesignUi()
 @Component({
@@ -12,13 +13,29 @@ import { colorSets } from "@swimlane/ngx-charts/release/utils";
 })
 export class ChartWidgetDesignComponent extends WidgetDesign implements OnInit {
   chartGroups: any[] = chartGroups;
-
+  needDataSource = true;
   chart: any = { options: [] };
-  dataSources: any[] = [];
 
-  selectOptions: any = {
-    showToolbar: false
-  };
+  curves = toDtoArray([
+    "Basis",
+    "Bundle",
+    "Cardinal",
+    "Catmull Rom",
+    "Linear",
+    "Monotone X",
+    "Monotone Y",
+    "Natural",
+    "Step",
+    "Step After",
+    "Step Before"
+  ]);
+
+  closedCurves = toDtoArray([
+    "Basis Closed",
+    "Cardinal Closed",
+    "Catmull Rom Closed",
+    "Linear Closed"
+  ]);
 
   themes: any[] = [
     {
@@ -60,17 +77,6 @@ export class ChartWidgetDesignComponent extends WidgetDesign implements OnInit {
 
   constructor() {
     super();
-  }
-  ngOnInit(): void {
-    this.dataSourceService.dataSourceList().subscribe(
-      x =>
-        (this.dataSources = x.map(ds => {
-          return {
-            id: ds,
-            title: ds
-          };
-        }))
-    );
   }
 
   afterModelSet() {

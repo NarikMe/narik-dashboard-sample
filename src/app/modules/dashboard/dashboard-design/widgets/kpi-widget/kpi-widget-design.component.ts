@@ -5,8 +5,8 @@ import { WidgetDesignUi } from "../../../../../templates/template.decorator";
 
 @WidgetDesignUi()
 @Component({
-  templateUrl: "./todo-widget-design.component.html"
+  templateUrl: "./kpi-widget-design.component.html"
 })
-export class TodoWidgetDesignComponent extends WidgetDesign {
+export class KpiWidgetDesignComponent extends WidgetDesign {
   needDataSource = true;
 }
