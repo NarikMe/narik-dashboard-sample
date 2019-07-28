@@ -16,6 +16,7 @@ import { WidgetViewType } from "../../dashboard-share/base/widget-view-type";
 export class DashboardDesignerComponent implements OnInit, CommandHost {
   change: Observable<any>;
 
+  selectedRow: DashboardRow;
   _rows: DashboardRow[] = [];
   @Input()
   set rows(value: DashboardRow[]) {
@@ -37,7 +38,13 @@ export class DashboardDesignerComponent implements OnInit, CommandHost {
 
   processCommand(cmd: CommandInfo) {
     if (cmd.commandKey === "add") {
-      this.rows.push(new DashboardRow(cmd.commandData || 1));
+      const newRow = new DashboardRow(cmd.commandData || 1);
+      if (this.selectedRow) {
+        const pos = this.rows.indexOf(this.selectedRow);
+        this.rows.splice(pos + 1, 0, newRow);
+      } else {
+        this.rows.push(newRow);
+      }
     } else if (cmd.commandKey === "import") {
       this.importFile.nativeElement.click();
     } else if (cmd.commandKey === "export") {
