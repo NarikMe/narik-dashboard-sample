@@ -13,7 +13,14 @@ const routes: Routes = [
     data: { moduleKey: "main" },
     component: MainComponent,
     children: [
-      { path: "", component: MainViewComponent },
+      {
+        path: "",
+        component: MainViewComponent,
+        outlet: "dashboard",
+        data: {
+          showOnlyRouter: true
+        }
+      },
       {
         path: "dashboard",
         component: DashboardViewerComponent,

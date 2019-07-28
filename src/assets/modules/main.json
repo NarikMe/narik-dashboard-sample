@@ -80,6 +80,11 @@
     "menuItems": [
       {
         "title": "dashboard.dashboard",
+        "icon": "home-outline",
+        "link": "/"
+      },
+      {
+        "title": "dashboard.dashboardForm",
         "icon": "menu-outline",
         "children": [
           {

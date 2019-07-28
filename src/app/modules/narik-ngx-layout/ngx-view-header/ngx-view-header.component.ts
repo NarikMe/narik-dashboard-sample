@@ -29,7 +29,7 @@ export class NgxHeaderComponent {
     this.user = authenticationService.currentUserValue;
   }
 
-  goToHome() {}
+
 
   toggleSidebar(): boolean {
     this.sidebarService.toggle(true, "menu-sidebar");

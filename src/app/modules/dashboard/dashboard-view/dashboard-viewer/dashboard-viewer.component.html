@@ -1,5 +1,5 @@
 <narik-busy-indicator>
-  <narik-toolbar toolbarKey="dashboard-viewer"></narik-toolbar>
+  <narik-toolbar *ngIf="showToolbar" toolbarKey="dashboard-viewer"></narik-toolbar>
   <div class="container-fluid row-list dashboard-body">
     <div *ngFor="let row of rows" class="row row-item" [ngClass]="{'selected': row===selectedRow}">
       <dashboard-view-row [row]="row"></dashboard-view-row>

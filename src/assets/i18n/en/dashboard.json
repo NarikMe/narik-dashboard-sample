@@ -1,6 +1,7 @@
 {
   "dashboard": {
     "dashboard": "Dashboard",
+    "dashboardForm": "Dashboard Forms",
     "dashboardDesign": "Design Dashboard",
     "row-size-is-full": "Can not add cell to this row!",
     "confirm-remove-row": "Are you sure to remove the row?",

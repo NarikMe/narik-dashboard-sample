@@ -14,6 +14,9 @@ import { WidgetViewType } from "../../dashboard-share/base/widget-view-type";
 export class DashboardViewerComponent implements OnInit, CommandHost {
   change: Observable<any>;
 
+  @Input()
+  showToolbar = true;
+
   @ViewChild("importFile", { static: false })
   importFile: ElementRef<any>;
 

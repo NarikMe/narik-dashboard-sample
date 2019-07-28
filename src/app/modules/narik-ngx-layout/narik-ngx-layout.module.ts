@@ -1,3 +1,4 @@
+import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 
 import { COMPONENTS } from "./index";
@@ -19,6 +20,7 @@ import { RouterModule } from "@angular/router";
 @NgModule({
   imports: [
     RouterModule,
+    CommonModule,
     NbActionsModule,
     NbCardModule,
     NbContextMenuModule,

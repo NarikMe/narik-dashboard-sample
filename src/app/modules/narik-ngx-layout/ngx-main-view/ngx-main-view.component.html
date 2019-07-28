@@ -5,17 +5,12 @@
 
 
   <nb-sidebar class="menu-sidebar" tag="menu-sidebar" responsive>
-    <!-- <nb-sidebar-header >
-      <a  class="btn btn-hero-success main-btn">
-        <i class="nb-menu"></i> <span>{{menuHeader}}</span>
-      </a>
-    </nb-sidebar-header> -->
     <nb-menu [items]="menuItems"></nb-menu>
   </nb-sidebar>
 
 
   <nb-layout-column>
-    <nb-card>
+    <nb-card *ngIf="!showOnlyRouter">
       <nb-card-header>
         {{title}}
       </nb-card-header>
@@ -23,5 +18,6 @@
         <router-outlet></router-outlet>
       </nb-card-body>
     </nb-card>
+    <router-outlet name="dashboard" *ngIf="showOnlyRouter"></router-outlet>
   </nb-layout-column>
 </nb-layout>

@@ -18,6 +18,8 @@ export class NgxMainViewComponent extends NarikComponent implements OnInit {
   _menuItems: NbMenuItem[];
   title: string;
 
+  @Input()
+  showOnlyRouter = false;
   _translateMenu = true;
   set translateMenu(value: boolean) {
     this._translateMenu = value;
@@ -64,6 +66,26 @@ export class NgxMainViewComponent extends NarikComponent implements OnInit {
         if (title) {
           this.title = this.translateService.instant(this.getFirst(title));
           this.titleService.setTitle(this.title);
+        }
+      });
+
+    router.events
+      .pipe(
+        filter(event => event instanceof NavigationEnd),
+        map(() => {
+          let route = activatedRoute;
+          while (route.firstChild) {
+            route = route.firstChild;
+          }
+          return route;
+        }),
+        takeWhile(x => this.isAlive)
+      )
+      .subscribe(ar => {
+        if (ar.snapshot.data && ar.snapshot.data.showOnlyRouter === true) {
+          this.showOnlyRouter = true;
+        } else {
+          this.showOnlyRouter = false;
         }
       });
   }
