@@ -1,0 +1,19 @@
+.widget-view-container {
+  position: relative;
+}
+
+.widget-view-toolbar {
+  position: absolute;
+  right: -10px;
+  top: -20px;
+}
+
+.widget-full-screen .widget-view-toolbar {
+  right: 0 !important;
+  top: 0 !important;
+}
+
+
+.widget-full-screen .widget-content {
+  padding: 20px !important;
+}

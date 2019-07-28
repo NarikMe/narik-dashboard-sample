@@ -3,7 +3,26 @@
     {
       "key": "todo",
       "metaData": {},
-      "data": ["Task1", "Task2", "Task3", "Task4", "Task5"]
+      "data": [
+        {
+          "title": "add gulp script to project"
+        },
+        {
+          "title": "update style guide"
+        },
+        {
+          "title": "send over prototype to client"
+        },
+        {
+          "title": "complete Landing page"
+        },
+        {
+          "title": "complete SASS helper functions"
+        },
+        {
+          "title": "convert logo from png to svg"
+        }
+      ]
     },
     {
       "key": "chart-single",

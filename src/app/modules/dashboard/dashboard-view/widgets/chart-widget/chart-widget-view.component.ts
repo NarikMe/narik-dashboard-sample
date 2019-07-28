@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Injector, AfterViewInit } from "@angular/core";
 
 import { WidgetView } from "../../../dashboard-share/base/widget-view";
 import { WidgetViewUi } from "src/app/templates/template.decorator";
@@ -10,9 +10,10 @@ import * as shape from "d3-shape";
   templateUrl: "./chart-widget-view.component.html",
   styleUrls: ["chart-widget-view.component.scss"]
 })
-export class ChartWidgetViewComponent extends WidgetView {
+export class ChartWidgetViewComponent extends WidgetView
+  implements AfterViewInit {
   chartData: any[];
-
+  enabledFullScreen = true;
   view: any[];
 
   colorScheme: any;
@@ -38,8 +39,8 @@ export class ChartWidgetViewComponent extends WidgetView {
   curve: any = this.curves["Linear"];
   closedCurve: any = this.curves["Linear Closed"];
 
-  constructor() {
-    super();
+  constructor(injector: Injector) {
+    super(injector);
     this.setColorScheme("cool");
   }
   setColorScheme(name) {
@@ -90,5 +91,16 @@ export class ChartWidgetViewComponent extends WidgetView {
       this.closedCurve =
         this.curves[this.model.closedCurve] || this.curves["default"];
     }
+
+    this.view = [0, 0];
+    setTimeout(() => {
+      if (this.model && (this.model.width || this.model.height)) {
+        this.applyDimensions();
+      } else {
+        this.view = undefined;
+      }
+    }, 0);
   }
+
+  ngAfterViewInit(): void {}
 }

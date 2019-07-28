@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Injector } from "@angular/core";
 
 import { WidgetView } from "../../../dashboard-share/base/widget-view";
 import { WidgetViewUi } from "src/app/templates/template.decorator";
@@ -10,8 +10,8 @@ import { WidgetViewUi } from "src/app/templates/template.decorator";
 })
 export class KpiWidgetViewComponent extends WidgetView {
   kpiInfo: any = {};
-  constructor() {
-    super();
+  constructor(injector: Injector) {
+    super(injector);
   }
   afterModelSet() {
     if (this.model.dataSource) {

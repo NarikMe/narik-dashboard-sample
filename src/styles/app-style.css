@@ -37,4 +37,9 @@ narik-checkbox {
   display: block;
 }
 
+.widget-full-screen {
+  height: 100vh;
+  background-color: #fff;
+}
+
 

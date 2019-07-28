@@ -1,6 +1,13 @@
-<div>
-  <h4>
-    <ng-container narik-section="title">widget Title</ng-container>
-  </h4>
-  <div narik-section="content"></div>
+<div class="widget-view-container mt-2" [ngClass]="{'widget-full-screen': isFullScreen}">
+  <div class="widget-view-toolbar">
+    <mat-icon class="cursor-pointer" (click)="toggleFullScreen()" *ngIf="enabledFullScreen">
+      {{isFullScreen  ? "fullscreen_exit":"fullscreen"}}
+    </mat-icon>
+  </div>
+  <div class="widget-content">
+    <h4>
+      <ng-container narik-section="title">widget Title</ng-container>
+    </h4>
+    <div narik-section="content"></div>
+  </div>
 </div>

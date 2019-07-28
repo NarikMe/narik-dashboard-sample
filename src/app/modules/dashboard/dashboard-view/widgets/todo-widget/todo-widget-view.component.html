@@ -8,12 +8,12 @@
       <mat-list role="list">
         <ng-container *ngFor="let item of todoItems">
           <mat-list-item role="listitem">
-            <mat-icon class="cursor-pointer" (click)="done(item)" matListIcon>done</mat-icon>
-            {{item}}
+            <narik-checkbox [ngClass]="{'done': item.done}" [label]="item.title" [(ngModel)]='item.done' name='done'>
+            </narik-checkbox>
           </mat-list-item>
         </ng-container>
         <div class="footer">
-          {{todoItems.length}} items left.
+          {{remainCount}} items left.
         </div>
       </mat-list>
     </ng-container>

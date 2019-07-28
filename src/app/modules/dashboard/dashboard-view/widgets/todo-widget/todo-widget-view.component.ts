@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Injector } from "@angular/core";
 
 import { WidgetView } from "../../../dashboard-share/base/widget-view";
 import { WidgetViewUi } from "src/app/templates/template.decorator";
@@ -10,8 +10,8 @@ import { WidgetViewUi } from "src/app/templates/template.decorator";
 })
 export class TodoWidgetViewComponent extends WidgetView {
   todoItems: any[] = [];
-  constructor() {
-    super();
+  constructor(injector: Injector) {
+    super(injector);
   }
   afterModelSet() {
     if (this.model.dataSource) {
@@ -19,5 +19,9 @@ export class TodoWidgetViewComponent extends WidgetView {
         .dataSourceData(this.model.dataSource)
         .subscribe(x => (this.todoItems = x));
     }
+  }
+
+  get remainCount() {
+    return this.todoItems.filter(x => !x.done).length;
   }
 }

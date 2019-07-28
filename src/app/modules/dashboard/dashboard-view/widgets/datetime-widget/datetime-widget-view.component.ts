@@ -1,5 +1,5 @@
 import { takeWhile } from "rxjs/internal/operators/takeWhile";
-import { Component, OnInit, OnDestroy } from "@angular/core";
+import { Component, OnInit, OnDestroy, Injector } from "@angular/core";
 
 import { WidgetView } from "../../../dashboard-share/base/widget-view";
 import { WidgetViewUi } from "src/app/templates/template.decorator";
@@ -14,8 +14,8 @@ export class DatetimeWidgetViewComponent extends WidgetView
   implements OnInit, OnDestroy {
   today: any = new Date();
   isAlive = true;
-  constructor() {
-    super();
+  constructor(injector: Injector) {
+    super(injector);
   }
   ngOnInit(): void {
     interval(1000)

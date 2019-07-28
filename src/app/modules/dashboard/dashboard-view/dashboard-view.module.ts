@@ -1,32 +1,37 @@
-import { MatIconModule, MatChipsModule } from "@angular/material";
-import { RouterModule } from "@angular/router";
+import { NgMathPipesModule } from "angular-pipes";
+import { NarikCommonModule } from "narik-common";
+import {
+  NarikMatBusyIndicatorModule,
+  NarikMatToolbarModule,
+  NarikMatCheckBoxModule
+} from "narik-ui-material";
+import { DateFnsModule } from "ngx-date-fns";
+
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
+import { MatChipsModule, MatIconModule } from "@angular/material";
 import { MatCardModule } from "@angular/material/card";
+import { MatListModule } from "@angular/material/list";
+import { RouterModule } from "@angular/router";
+import { NgxChartsModule } from "@swimlane/ngx-charts";
 
 import { DashboardViewCellComponent } from "./dashboard-view-cell/dashboard-view-cell.component";
 import { DashboardViewRowComponent } from "./dashboard-view-row/dashboard-view-row.component";
-import { WIDGETS } from "./widgets/index";
 import { DashboardViewerComponent } from "./dashboard-viewer/dashboard-viewer.component";
-import { NarikCommonModule } from "narik-common";
-import {
-  NarikMatToolbarModule,
-  NarikMatBusyIndicatorModule
-} from "narik-ui-material";
-import { MatListModule } from "@angular/material/list";
-import { NgxChartsModule } from "@swimlane/ngx-charts";
-import { DateFnsModule } from "ngx-date-fns";
-import { NgMathPipesModule } from "angular-pipes";
+import { WIDGETS } from "./widgets/index";
 
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
     MatCardModule,
     MatIconModule,
     MatChipsModule,
     NarikCommonModule,
     NarikMatToolbarModule,
     NarikMatBusyIndicatorModule,
+    NarikMatCheckBoxModule,
     MatListModule,
     NgxChartsModule,
     RouterModule,

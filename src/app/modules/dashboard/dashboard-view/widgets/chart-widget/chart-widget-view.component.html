@@ -3,7 +3,7 @@
 </ng-template>
 
 <ng-template #content>
-  <div class="p-2" [class]="model.theme || 'light'" [style.height.px]="model.containerHeight || model.height">
+  <div class="p-2" [class]="model.theme || 'light'" [ngClass]="{'full-screen-chart': isFullScreen}" [style.height.px]=" model.containerHeight || model.height">
     <ngx-charts-bar-vertical *ngIf="model.chartType === 'bar-vertical'" class="chart-container" [view]="view"
       [scheme]="colorScheme" [schemeType]="model.schemeType" [customColors]="customColors" [results]="chartData"
       [animations]="model.animations" [gradient]="model.gradient" [xAxis]="model.showXAxis" [yAxis]="model.showYAxis"
@@ -259,7 +259,7 @@
       [startAngle]="model.gaugeStartAngle" [showAxis]="model.gaugeShowAxis" [bigSegments]="model.gaugeLargeSegments"
       [smallSegments]="model.gaugeSmallSegments"
       [margin]="model.margin ? [model.marginTop, model.marginRight, model.marginBottom, model.marginLeft] : null"
-      [tooltipDisabled]="model.tooltipDisabled" [showText]="showText" (select)="select($event)"
+      [tooltipDisabled]="model.tooltipDisabled" [showText]="model.showText" (select)="select($event)"
       (legendLabelClick)="onLegendLabelClick($event)" (activate)="activate($event)" (deactivate)="deactivate($event)">
     </ngx-charts-gauge>
     <ngx-charts-linear-gauge *ngIf="model.chartType === 'linear-gauge'" class="chart-container" [view]="view"
