@@ -19,6 +19,17 @@ export class WidgetView extends NarikComponent implements OnInit {
 
   _model: WidgetModel = {};
 
+  _size: number;
+  set size(value: number) {
+    if (this._size && this._size !== value) {
+      this.doOnResize();
+    }
+    this._size = value;
+  }
+  get size(): number {
+    return this._size;
+  }
+
   @Input()
   set model(value: any) {
     const tepModel = this.importModel(value);
@@ -68,4 +79,6 @@ export class WidgetView extends NarikComponent implements OnInit {
       }
     }
   }
+
+  doOnResize() {}
 }

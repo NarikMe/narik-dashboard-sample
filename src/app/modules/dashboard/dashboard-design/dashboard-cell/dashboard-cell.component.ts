@@ -47,6 +47,9 @@ export class DashboardCellComponent implements OnInit, CommandHost {
     DashboardCell
   >();
 
+  @Output()
+  sizeChange: EventEmitter<any> = new EventEmitter<any>();
+
   modelChange: EventEmitter<any> = new EventEmitter<any>();
 
   isMouseOver = false;
@@ -54,6 +57,9 @@ export class DashboardCellComponent implements OnInit, CommandHost {
   _size: number;
   @Input()
   set size(value: number) {
+    if (this._size !== value) {
+      this.sizeChange.emit(value);
+    }
     this._size = value;
     this.classItems =
       DashboardCell.colClasses
