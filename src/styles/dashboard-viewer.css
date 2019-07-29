@@ -17,3 +17,7 @@
 .widget-full-screen .widget-content {
   padding: 20px !important;
 }
+
+.widget-title-container {
+  height: 30px;
+}

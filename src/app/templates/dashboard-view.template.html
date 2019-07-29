@@ -5,7 +5,7 @@
     </mat-icon>
   </div>
   <div class="widget-content">
-    <h4>
+    <h4 class="widget-title-container" *ngIf="displayTitle">
       <ng-container narik-section="title">widget Title</ng-container>
     </h4>
     <div narik-section="content"></div>

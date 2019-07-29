@@ -10,7 +10,7 @@ import { takeWhile } from "rxjs/internal/operators/takeWhile";
 export class WidgetView extends NarikComponent implements OnInit {
   isFullScreen = false;
   enabledFullScreen = false;
-
+  displayTitle = true;
   @NarikInject(DataSourceService)
   protected dataSourceService: DataSourceService;
 

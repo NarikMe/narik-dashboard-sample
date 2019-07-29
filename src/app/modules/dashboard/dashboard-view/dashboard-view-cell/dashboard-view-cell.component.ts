@@ -21,7 +21,7 @@ export class DashboardViewCellComponent implements OnInit {
       .map(x => {
         return x + this.size.toString();
       })
-      .join(" ");
+      .join(" ") + " mt-1  mt-md-0";
   }
   get size(): number {
     return this._size;

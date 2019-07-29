@@ -13,6 +13,7 @@ import { interval } from "rxjs/internal/observable/interval";
 export class DatetimeWidgetViewComponent extends WidgetView
   implements OnInit, OnDestroy {
   today: any = new Date();
+  displayTitle = false;
   isAlive = true;
   constructor(injector: Injector) {
     super(injector);

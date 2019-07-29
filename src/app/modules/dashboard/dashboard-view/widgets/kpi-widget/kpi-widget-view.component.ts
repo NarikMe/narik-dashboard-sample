@@ -9,6 +9,7 @@ import { WidgetViewUi } from "src/app/templates/template.decorator";
   styleUrls: ["kpi-widget-view.component.css"]
 })
 export class KpiWidgetViewComponent extends WidgetView {
+  displayTitle = false;
   kpiInfo: any = {};
   constructor(injector: Injector) {
     super(injector);

@@ -1,7 +1,7 @@
 import { Type } from "@angular/core";
 
 export class DashboardCell {
-  static colClasses = ["col-md-", "col-sm-", "col-xs-"];
+  static colClasses = ["col-md-"];
 
   size: number;
   constructor(size?: number) {
