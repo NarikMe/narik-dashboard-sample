@@ -49,6 +49,11 @@
           "key": "Kpi",
           "value": "Kpi",
           "defaultModel": {}
+        },
+        {
+          "key": "DataTable",
+          "value": "DataTable",
+          "defaultModel": {}
         }
       ]
     }

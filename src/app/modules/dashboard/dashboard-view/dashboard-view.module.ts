@@ -3,7 +3,8 @@ import { NarikCommonModule } from "narik-common";
 import {
   NarikMatBusyIndicatorModule,
   NarikMatToolbarModule,
-  NarikMatCheckBoxModule
+  NarikMatCheckBoxModule,
+  NarikMatDataTableModule
 } from "narik-ui-material";
 import { DateFnsModule } from "ngx-date-fns";
 
@@ -32,6 +33,7 @@ import { WIDGETS } from "./widgets/index";
     NarikMatToolbarModule,
     NarikMatBusyIndicatorModule,
     NarikMatCheckBoxModule,
+    NarikMatDataTableModule,
     MatListModule,
     NgxChartsModule,
     RouterModule,

@@ -12,7 +12,7 @@ In this project , I create a dashboard system (designer and viewer) with multipl
 - [x] Todo List
 - [x] Chart
 - [ ] Map
-- [ ] Data
+- [x] Data
 - [x] Gauge
 - [x] DateTime
 - [ ] ....

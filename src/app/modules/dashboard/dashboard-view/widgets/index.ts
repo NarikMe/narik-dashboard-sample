@@ -5,11 +5,13 @@ import { DatetimeWidgetViewComponent } from "./datetime-widget/datetime-widget-v
 import { KpiWidgetViewComponent } from "./kpi-widget/kpi-widget-view.component";
 import { LinkWidgetViewComponent } from "./link-widget/link-widget-view.component";
 import { TodoWidgetViewComponent } from "./todo-widget/todo-widget-view.component";
+import { DataTableWidgetViewComponent } from "./data-table-widget/data-table-widget-view.component";
 
 export const WIDGETS: Provider[] = [
   LinkWidgetViewComponent,
   ChartWidgetViewComponent,
   TodoWidgetViewComponent,
   DatetimeWidgetViewComponent,
-  KpiWidgetViewComponent
+  KpiWidgetViewComponent,
+  DataTableWidgetViewComponent
 ];

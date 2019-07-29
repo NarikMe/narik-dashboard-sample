@@ -27,7 +27,8 @@
       "link": "Link",
       "chart": "Chart",
       "todo": "To Do List",
-      "dateTime": "Date/Time"
+      "dateTime": "Date/Time",
+      "dataTable": "Data Table"
     },
     "dataSource": "Data Source",
     "theme": "Theme",
@@ -88,6 +89,7 @@
     "format": "Format",
     "containerHeight": "Container Height",
     "closedCurve": "Line Interpolation",
-    "curve": "Line Interpolation"
+    "curve": "Line Interpolation",
+    "pageSize":"Page Size"
   }
 }

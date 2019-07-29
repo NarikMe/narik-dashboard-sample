@@ -33,3 +33,15 @@
 .advanced-pie-legend .total-label {
   margin-top: 10px;
 }
+
+.mat-table-container {
+  height: 100% !important;
+}
+
+narik-mat-busy-indicator {
+  height: calc(100% - 70px);
+}
+
+.has-paging narik-mat-busy-indicator {
+  height: calc(100% - 100px);
+}
