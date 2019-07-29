@@ -12,6 +12,8 @@ import * as shape from "d3-shape";
 })
 export class ChartWidgetViewComponent extends WidgetView
   implements AfterViewInit {
+  static readonly COMPONENT_NAME = "ChartWidgetViewComponent";
+
   chartData: any[];
   enabledFullScreen = true;
   view: any[];

@@ -9,6 +9,7 @@ import { WidgetViewUi } from "src/app/templates/template.decorator";
   styleUrls: ["todo-widget-view.component.css"]
 })
 export class TodoWidgetViewComponent extends WidgetView {
+  static readonly COMPONENT_NAME = "TodoWidgetViewComponent";
   todoItems: any[] = [];
   constructor(injector: Injector) {
     super(injector);

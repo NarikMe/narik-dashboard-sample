@@ -8,5 +8,6 @@ import { WidgetDesignUi } from "../../../../../templates/template.decorator";
   templateUrl: "./datetime-widget-design.component.html"
 })
 export class DatetimeWidgetDesignComponent extends WidgetDesign {
+  static readonly COMPONENT_NAME = "DatetimeWidgetDesignComponent";
   displayTitle = false;
 }

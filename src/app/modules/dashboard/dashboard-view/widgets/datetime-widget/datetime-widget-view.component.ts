@@ -12,6 +12,8 @@ import { interval } from "rxjs/internal/observable/interval";
 })
 export class DatetimeWidgetViewComponent extends WidgetView
   implements OnInit, OnDestroy {
+  static readonly COMPONENT_NAME = "DatetimeWidgetViewComponent";
+
   today: any = new Date();
   displayTitle = false;
   isAlive = true;

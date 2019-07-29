@@ -12,6 +12,7 @@ import { toDtoArray } from "narik-common";
   styleUrls: ["chart-widget-design.component.css"]
 })
 export class ChartWidgetDesignComponent extends WidgetDesign implements OnInit {
+  static readonly COMPONENT_NAME = "ChartWidgetDesignComponent";
   chartGroups: any[] = chartGroups;
   needDataSource = true;
   chart: any = { options: [] };

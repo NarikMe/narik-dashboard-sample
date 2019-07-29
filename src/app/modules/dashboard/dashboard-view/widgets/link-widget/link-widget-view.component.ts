@@ -15,6 +15,7 @@ import { WidgetViewUi } from "src/app/templates/template.decorator";
   ]
 })
 export class LinkWidgetViewComponent extends WidgetView {
+  static readonly COMPONENT_NAME = "LinkWidgetViewComponent";
   constructor(injector: Injector) {
     super(injector);
   }

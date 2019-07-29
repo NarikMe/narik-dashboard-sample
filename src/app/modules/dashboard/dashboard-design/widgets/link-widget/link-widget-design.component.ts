@@ -8,6 +8,7 @@ import { WidgetDesignUi } from "../../../../../templates/template.decorator";
   templateUrl: "./link-widget-design.component.html"
 })
 export class LinkWidgetDesignComponent extends WidgetDesign {
+  static readonly COMPONENT_NAME = "LinkWidgetDesignComponent";
   currentLink: any = {
     linkTitle: "",
     link: ""

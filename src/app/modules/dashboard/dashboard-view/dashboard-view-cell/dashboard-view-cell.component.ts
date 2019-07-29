@@ -17,11 +17,12 @@ export class DashboardViewCellComponent implements OnInit {
   @Input()
   set size(value: number) {
     this._size = value;
-    this.classItems = DashboardCell.colClasses
-      .map(x => {
-        return x + this.size.toString();
-      })
-      .join(" ") + " mt-1  mt-md-0";
+    this.classItems =
+      DashboardCell.colClasses
+        .map(x => {
+          return x + this.size.toString();
+        })
+        .join(" ") + " mt-1  mt-md-0";
   }
   get size(): number {
     return this._size;

@@ -8,5 +8,6 @@ import { WidgetDesignUi } from "../../../../../templates/template.decorator";
   templateUrl: "./todo-widget-design.component.html"
 })
 export class TodoWidgetDesignComponent extends WidgetDesign {
+  static readonly COMPONENT_NAME = "TodoWidgetDesignComponent";
   needDataSource = true;
 }
