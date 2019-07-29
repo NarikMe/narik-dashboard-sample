@@ -11,12 +11,12 @@
       {
         "key": "widgetTypes",
         "dataProviderKey": "localStorage",
-        "dataUrl": "/assets/dashboard.json"
+        "dataUrl": "assets/dashboard.json"
       },
       {
         "key": "widgetData",
         "dataProviderKey": "localStorage",
-        "dataUrl": "/assets/dashboard-data.json"
+        "dataUrl": "assets/dashboard-data.json"
       }
     ],
     "uiDefaultOptions": [
