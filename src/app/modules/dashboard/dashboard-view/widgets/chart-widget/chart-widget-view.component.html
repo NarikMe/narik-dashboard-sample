@@ -3,7 +3,8 @@
 </ng-template>
 
 <ng-template #content>
-  <div class="p-2" [class]="model.theme || 'light'" [ngClass]="{'full-screen-chart': isFullScreen}" [style.height.px]=" model.containerHeight || model.height">
+  <div class="p-2" [class]="model.theme || 'light'" [ngClass]="{'full-screen-chart': isFullScreen}"
+    [style.height.px]=" model.containerHeight || model.height">
     <ngx-charts-bar-vertical *ngIf="model.chartType === 'bar-vertical'" class="chart-container" [view]="view"
       [scheme]="colorScheme" [schemeType]="model.schemeType" [customColors]="customColors" [results]="chartData"
       [animations]="model.animations" [gradient]="model.gradient" [xAxis]="model.showXAxis" [yAxis]="model.showYAxis"
@@ -24,7 +25,7 @@
       [legendTitle]="model.legendTitle" [legendPosition]="model.legendPosition" [showXAxisLabel]="model.showXAxisLabel"
       [showYAxisLabel]="model.showYAxisLabel" [tooltipDisabled]="model.tooltipDisabled" [xAxisLabel]="model.xAxisLabel"
       [yAxisLabel]="model.yAxisLabel" [showGridLines]="model.showGridLines" [barPadding]="model.barPadding"
-      [roundDomains]="model.roundDomains" [roundEdges]="model.roundEdges" [xScaleMax]="xScaleMax"
+      [roundDomains]="model.roundDomains" [roundEdges]="model.roundEdges" [xScaleMax]="model.xScaleMax"
       [noBarWhenZero]="model.noBarWhenZero" [showDataLabel]="model.showDataLabel"
       [trimXAxisTicks]="model.trimXAxisTicks" [trimYAxisTicks]="model.trimYAxisTicks"
       [rotateXAxisTicks]="model.rotateXAxisTicks" [maxXAxisTickLength]="model.maxXAxisTickLength"
@@ -32,12 +33,12 @@
       (select)="select($event)" (activate)="activate($event)" (deactivate)="deactivate($event)">
     </ngx-charts-bar-horizontal>
     <ngx-charts-bar-vertical-2d *ngIf="model.chartType === 'bar-vertical-2d'" class="chart-container" [view]="view"
-      [scheme]="colorScheme" [schemeType]="model.schemeType" [results]="multi" [animations]="model.animations"
+      [scheme]="colorScheme" [schemeType]="model.schemeType" [results]="chartData" [animations]="model.animations"
       [gradient]="model.gradient" [xAxis]="model.showXAxis" [yAxis]="model.showYAxis" [legend]="model.showLegend"
       [legendTitle]="model.legendTitle" [legendPosition]="model.legendPosition" [showXAxisLabel]="model.showXAxisLabel"
       [showYAxisLabel]="model.showYAxisLabel" [tooltipDisabled]="model.tooltipDisabled" [xAxisLabel]="model.xAxisLabel"
       [yAxisLabel]="model.yAxisLabel" (legendLabelClick)="onLegendLabelClick($event)"
-      [showGridLines]="model.showGridLines" [barPadding]="model.barPadding" [groupPadding]="groupPadding"
+      [showGridLines]="model.showGridLines" [barPadding]="model.barPadding" [groupPadding]="model.groupPadding"
       [roundDomains]="model.roundDomains" [roundEdges]="model.roundEdges" [yScaleMax]="model.yScaleMax"
       [noBarWhenZero]="model.noBarWhenZero" [showDataLabel]="model.showDataLabel"
       [trimXAxisTicks]="model.trimXAxisTicks" [trimYAxisTicks]="model.trimYAxisTicks"
@@ -46,21 +47,21 @@
       (deactivate)="deactivate($event)">
     </ngx-charts-bar-vertical-2d>
     <ngx-charts-bar-horizontal-2d *ngIf="model.chartType === 'bar-horizontal-2d'" class="chart-container" [view]="view"
-      [scheme]="colorScheme" [schemeType]="model.schemeType" [results]="multi" [animations]="model.animations"
+      [scheme]="colorScheme" [schemeType]="model.schemeType" [results]="chartData" [animations]="model.animations"
       [gradient]="model.gradient" [tooltipDisabled]="model.tooltipDisabled" [xAxis]="model.showXAxis"
       [yAxis]="model.showYAxis" [legend]="model.showLegend" [legendTitle]="model.legendTitle"
       [legendPosition]="model.legendPosition" (legendLabelClick)="onLegendLabelClick($event)"
       [showXAxisLabel]="model.showXAxisLabel" [showYAxisLabel]="model.showYAxisLabel" [xAxisLabel]="model.xAxisLabel"
       [yAxisLabel]="yAxisLabel" [showGridLines]="model.showGridLines" [barPadding]="model.barPadding"
-      [groupPadding]="groupPadding" [roundDomains]="model.roundDomains" [roundEdges]="model.roundEdges"
-      [xScaleMax]="xScaleMax" [noBarWhenZero]="model.noBarWhenZero" [showDataLabel]="model.showDataLabel"
+      [groupPadding]="model.groupPadding" [roundDomains]="model.roundDomains" [roundEdges]="model.roundEdges"
+      [xScaleMax]="model.xScaleMax" [noBarWhenZero]="model.noBarWhenZero" [showDataLabel]="model.showDataLabel"
       [trimXAxisTicks]="model.trimXAxisTicks" [trimYAxisTicks]="model.trimYAxisTicks"
       [rotateXAxisTicks]="model.rotateXAxisTicks" [maxXAxisTickLength]="model.maxXAxisTickLength"
       [maxYAxisTickLength]="model.maxYAxisTickLength" (select)="select($event)" (activate)="activate($event)"
       (deactivate)="deactivate($event)">
     </ngx-charts-bar-horizontal-2d>
     <ngx-charts-bar-vertical-stacked *ngIf="model.chartType === 'bar-vertical-stacked'" class="chart-container"
-      [view]="view" [scheme]="colorScheme" [schemeType]="model.schemeType" [results]="multi"
+      [view]="view" [scheme]="colorScheme" [schemeType]="model.schemeType" [results]="chartData"
       [animations]="model.animations" [gradient]="model.gradient" [tooltipDisabled]="model.tooltipDisabled"
       [xAxis]="model.showXAxis" [yAxis]="model.showYAxis" [legend]="model.showLegend" [legendTitle]="model.legendTitle"
       [legendPosition]="model.legendPosition" (legendLabelClick)="onLegendLabelClick($event)"
@@ -73,14 +74,14 @@
       (select)="select($event)" (activate)="activate($event)" (deactivate)="deactivate($event)">
     </ngx-charts-bar-vertical-stacked>
     <ngx-charts-bar-horizontal-stacked *ngIf="model.chartType === 'bar-horizontal-stacked'" class="chart-container"
-      [view]="view" [scheme]="colorScheme" [schemeType]="model.schemeType" [results]="multi"
+      [view]="view" [scheme]="colorScheme" [schemeType]="model.schemeType" [results]="chartData"
       [animations]="model.animations" [gradient]="model.gradient" [tooltipDisabled]="model.tooltipDisabled"
       [xAxis]="model.showXAxis" [yAxis]="model.showYAxis" [legend]="model.showLegend" [legendTitle]="model.legendTitle"
       [legendPosition]="model.legendPosition" [showXAxisLabel]="model.showXAxisLabel"
       (legendLabelClick)="onLegendLabelClick($event)" [showYAxisLabel]="model.showYAxisLabel"
       [xAxisLabel]="model.xAxisLabel" [yAxisLabel]="model.yAxisLabel" [showGridLines]="model.showGridLines"
       [barPadding]="model.barPadding" [roundDomains]="model.roundDomains" [showDataLabel]="model.showDataLabel"
-      [xScaleMax]="xScaleMax" [noBarWhenZero]="model.noBarWhenZero" [trimXAxisTicks]="model.trimXAxisTicks"
+      [xScaleMax]="model.xScaleMax" [noBarWhenZero]="model.noBarWhenZero" [trimXAxisTicks]="model.trimXAxisTicks"
       [trimYAxisTicks]="model.trimYAxisTicks" [rotateXAxisTicks]="model.rotateXAxisTicks"
       [maxXAxisTickLength]="model.maxXAxisTickLength" [maxYAxisTickLength]="model.maxYAxisTickLength"
       (select)="select($event)" (activate)="activate($event)" (deactivate)="deactivate($event)">
@@ -137,8 +138,8 @@
       (legendLabelClick)="onLegendLabelClick($event)" [gradient]="model.gradient" [xAxis]="model.showXAxis"
       [yAxis]="model.showYAxis" [showXAxisLabel]="model.showXAxisLabel" [showYAxisLabel]="model.showYAxisLabel"
       [xAxisLabel]="model.xAxisLabel" [yAxisLabel]="model.yAxisLabel" [autoScale]="model.autoScale"
-      [xScaleMin]="model.xScaleMin" [xScaleMax]="model.xScaleMax" [yScaleMin]="model.yScaleMin" [yScaleMax]="model.yScaleMax"
-      [timeline]="model.timeline" [showGridLines]="model.showGridLines" [curve]="curve"
+      [xScaleMin]="model.xScaleMin" [xScaleMax]="model.xScaleMax" [yScaleMin]="model.yScaleMin"
+      [yScaleMax]="model.yScaleMax" [timeline]="model.timeline" [showGridLines]="model.showGridLines" [curve]="curve"
       [rangeFillOpacity]="model.rangeFillOpacity" [roundDomains]="model.roundDomains"
       [tooltipDisabled]="model.tooltipDisabled" [trimXAxisTicks]="model.trimXAxisTicks"
       [trimYAxisTicks]="model.trimYAxisTicks" [rotateXAxisTicks]="model.rotateXAxisTicks"
@@ -161,33 +162,22 @@
       [legend]="model.showLegend" [legendTitle]="model.legendTitle" [legendPosition]="model.legendPosition"
       [xAxis]="model.showXAxis" [yAxis]="model.showYAxis" [showXAxisLabel]="model.showXAxisLabel"
       [showYAxisLabel]="model.showYAxisLabel" [xAxisLabel]="model.xAxisLabel" [yAxisLabel]="model.yAxisLabel"
-      [autoScale]="model.autoScale" [xScaleMin]="model.xScaleMin" [xScaleMax]="model.xScaleMax" [yScaleMin]="model.yScaleMin"
-      [yScaleMax]="model.yScaleMax" [scheme]="colorScheme" [schemeType]="model.schemeType"
+      [autoScale]="model.autoScale" [xScaleMin]="model.xScaleMin" [xScaleMax]="model.xScaleMax"
+      [yScaleMin]="model.yScaleMin" [yScaleMax]="model.yScaleMax" [scheme]="colorScheme" [schemeType]="model.schemeType"
       [roundDomains]="model.roundDomains" [tooltipDisabled]="model.tooltipDisabled" [minRadius]="model.minRadius"
       [maxRadius]="model.maxRadius" [trimXAxisTicks]="model.trimXAxisTicks" [trimYAxisTicks]="model.trimYAxisTicks"
       [rotateXAxisTicks]="model.rotateXAxisTicks" [maxXAxisTickLength]="model.maxXAxisTickLength"
       [maxYAxisTickLength]="model.maxYAxisTickLength" (activate)="activate($event)" (deactivate)="deactivate($event)"
       (select)="select($event)">
     </ngx-charts-bubble-chart>
-    <div style="width: 100%; height: 100%" *ngIf="model.chartType === 'force-directed-graph'">
-      <ngx-charts-force-directed-graph class="chart-container" [legend]="model.showLegend"
-        [legendTitle]="model.legendTitle" [legendPosition]="model.legendPosition" [links]="graph.links"
-        [animations]="model.animations" (legendLabelClick)="onLegendLabelClick($event)" [nodes]="graph.nodes"
-        [scheme]="colorScheme" [view]="view" [tooltipDisabled]="model.tooltipDisabled" (select)="select($event)">
-      </ngx-charts-force-directed-graph>
-      <p style="width: calc(100% - 300px)">
-        The force-directed chart type has been deprecated in favor of
-        <a href="https://github.com/swimlane/ngx-graph" target="_blank">ngx-graph</a> and will be removed in the next
-        major version. Please use ngx-graph instead
-      </p>
-    </div>
+
     <ngx-charts-area-chart *ngIf="model.chartType === 'area-chart'" class="chart-container" [view]="view"
       [scheme]="colorScheme" [schemeType]="model.schemeType" [results]="chartData" [animations]="model.animations"
       [legend]="model.showLegend" [legendTitle]="model.legendTitle" [legendPosition]="model.legendPosition"
       (legendLabelClick)="onLegendLabelClick($event)" [gradient]="model.gradient" [xAxis]="model.showXAxis"
       [yAxis]="model.showYAxis" [showXAxisLabel]="model.showXAxisLabel" [showYAxisLabel]="model.showYAxisLabel"
       [xAxisLabel]="model.xAxisLabel" [yAxisLabel]="model.yAxisLabel" [autoScale]="model.autoScale"
-      [xScaleMin]="xScaleMin" [xScaleMax]="xScaleMax" [yScaleMin]="yScaleMin" [yScaleMax]="model.yScaleMax"
+      [xScaleMin]="xScaleMin" [xScaleMax]="model.xScaleMax" [yScaleMin]="yScaleMin" [yScaleMax]="model.yScaleMax"
       [timeline]="model.timeline" [showGridLines]="model.showGridLines" [roundDomains]="model.roundDomains"
       [curve]="curve" [tooltipDisabled]="model.tooltipDisabled" [trimXAxisTicks]="model.trimXAxisTicks"
       [trimYAxisTicks]="model.trimYAxisTicks" [rotateXAxisTicks]="model.rotateXAxisTicks"
@@ -200,7 +190,7 @@
       [legendPosition]="model.legendPosition" [gradient]="model.gradient" [xAxis]="model.showXAxis"
       [yAxis]="model.showYAxis" (legendLabelClick)="onLegendLabelClick($event)" [showXAxisLabel]="model.showXAxisLabel"
       [showYAxisLabel]="model.showYAxisLabel" [xAxisLabel]="model.xAxisLabel" [yAxisLabel]="model.yAxisLabel"
-      [timeline]="model.timeline" [xScaleMin]="xScaleMin" [xScaleMax]="xScaleMax" [yScaleMin]="yScaleMin"
+      [timeline]="model.timeline" [xScaleMin]="xScaleMin" [xScaleMax]="model.xScaleMax" [yScaleMin]="yScaleMin"
       [yScaleMax]="model.yScaleMax" [showGridLines]="model.showGridLines" [roundDomains]="model.roundDomains"
       [tooltipDisabled]="model.tooltipDisabled" [curve]="curve" [trimXAxisTicks]="model.trimXAxisTicks"
       [trimYAxisTicks]="model.trimYAxisTicks" [rotateXAxisTicks]="model.rotateXAxisTicks"
@@ -225,7 +215,7 @@
       [legend]="model.showLegend" [gradient]="model.gradient" (legendLabelClick)="onLegendLabelClick($event)"
       [xAxis]="model.showXAxis" [yAxis]="model.showYAxis" [showXAxisLabel]="model.showXAxisLabel"
       [showYAxisLabel]="model.showYAxisLabel" [xAxisLabel]="model.xAxisLabel" [yAxisLabel]="model.yAxisLabel"
-      [innerPadding]="innerPadding" [tooltipDisabled]="model.tooltipDisabled" [trimXAxisTicks]="model.trimXAxisTicks"
+      [innerPadding]="model.innerPadding" [tooltipDisabled]="model.tooltipDisabled" [trimXAxisTicks]="model.trimXAxisTicks"
       [trimYAxisTicks]="model.trimYAxisTicks" [rotateXAxisTicks]="model.rotateXAxisTicks"
       [maxXAxisTickLength]="model.maxXAxisTickLength" [maxYAxisTickLength]="model.maxYAxisTickLength"
       (select)="select($event)" (activate)="activate($event)" (deactivate)="deactivate($event)">
@@ -263,8 +253,8 @@
       (legendLabelClick)="onLegendLabelClick($event)" (activate)="activate($event)" (deactivate)="deactivate($event)">
     </ngx-charts-gauge>
     <ngx-charts-linear-gauge *ngIf="model.chartType === 'linear-gauge'" class="chart-container" [view]="view"
-      [scheme]="colorScheme" [animations]="model.animations" [min]="gaugeMin" [max]="gaugeMax" [value]="gaugeValue"
-      [previousValue]="gaugePreviousValue" [units]="gaugeUnits" (select)="select($event)">
+      [scheme]="colorScheme" [animations]="model.animations" [min]="model.gaugeMin" [max]="model.gaugeMax" [value]="model.gaugeValue"
+      [previousValue]="model.gaugePreviousValue" [units]="model.gaugeUnits" (select)="select($event)">
     </ngx-charts-linear-gauge>
 
     <div class="chart-container" *ngIf="model.chartType === 'tree-map-demo'"

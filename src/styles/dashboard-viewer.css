@@ -21,3 +21,15 @@
 .widget-title-container {
   height: 30px;
 }
+
+.advanced-pie-legend .legend-items-container .legend-items .legend-item .item-label {
+  margin-top: 0 !important;
+}
+
+.advanced-pie-legend .legend-items-container .legend-items .legend-item .item-value {
+  margin-top: 0 !important;
+}
+
+.advanced-pie-legend .total-label {
+  margin-top: 10px;
+}

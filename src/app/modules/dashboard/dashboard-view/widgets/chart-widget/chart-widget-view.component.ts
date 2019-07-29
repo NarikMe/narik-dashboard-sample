@@ -18,6 +18,10 @@ export class ChartWidgetViewComponent extends WidgetView
 
   colorScheme: any;
 
+  // heatmap
+  heatmapMin = 0;
+  heatmapMax = 50000;
+
   curves = {
     Basis: shape.curveBasis,
     "Basis Closed": shape.curveBasisClosed,
@@ -49,6 +53,9 @@ export class ChartWidgetViewComponent extends WidgetView
 
   select(data) {
     console.log("Item clicked", JSON.parse(JSON.stringify(data)));
+  }
+  onLegendLabelClick(entry) {
+    console.log("Legend clicked", entry);
   }
 
   activate(data) {

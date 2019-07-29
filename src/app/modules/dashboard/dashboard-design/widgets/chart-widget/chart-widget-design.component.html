@@ -206,7 +206,7 @@
         <narik-input type="number" *ngIf="chart.options.includes('max')" label='{{"dashboard.gaugeMax" | translate}}'
           [(ngModel)]='model.gaugeMax' name='gaugeMax'>
         </narik-input>
-        <narik-input min="0" step="1" type="number" *ngIf="chart.options.includes('innerPadding')"
+        <narik-input  *ngIf="chart.options.includes('innerPadding')"
           label='{{"dashboard.innerPadding" | translate}}' [(ngModel)]='model.innerPadding' name='innerPadding'>
         </narik-input>
         <narik-input min="0" step="1" type="number" *ngIf="chart.options.includes('groupPadding')"
