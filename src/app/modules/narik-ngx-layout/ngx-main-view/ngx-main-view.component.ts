@@ -96,12 +96,19 @@ export class NgxMainViewComponent extends NarikComponent implements OnInit {
   ngOnInit() {
     if (this.menuItems && this.translateMenu) {
       this.translateMenuTitles(this.menuItems);
+
+      (this.translateService as any).translateService.onLangChange.subscribe(
+        event => this.translateMenuTitles(this.menuItems)
+      );
     }
   }
 
   translateMenuTitles(menuItems) {
     for (const item of menuItems) {
-      item.title = this.translateService.instant(item.title);
+      if (!item.key) {
+        item.key = item.title;
+      }
+      item.title = this.translateService.instant(item.key);
       if (item.children) {
         this.translateMenuTitles(item.children);
       }

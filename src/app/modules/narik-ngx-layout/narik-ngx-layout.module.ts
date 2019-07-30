@@ -1,7 +1,10 @@
+import { FormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 
 import { COMPONENTS } from "./index";
+
+import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 
 import {
   NbActionsModule,
@@ -21,6 +24,7 @@ import { RouterModule } from "@angular/router";
   imports: [
     RouterModule,
     CommonModule,
+    FormsModule,
     NbActionsModule,
     NbCardModule,
     NbContextMenuModule,
@@ -29,7 +33,8 @@ import { RouterModule } from "@angular/router";
     NbSearchModule,
     NbSidebarModule,
     NbIconModule,
-    NbUserModule
+    NbUserModule,
+    MatSlideToggleModule
   ],
   declarations: [COMPONENTS],
   exports: [COMPONENTS],

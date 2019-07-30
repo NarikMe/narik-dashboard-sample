@@ -7,12 +7,7 @@
   min-height: 100px;
 }
 
-.row-toolbar {
-  position: absolute;
-  top: -5px;
-  left: 6px;
-  display: flex;
-}
+
 
 .row-content {
   min-height: 100px;

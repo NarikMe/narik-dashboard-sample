@@ -5,8 +5,12 @@
     </a>
     <a class="logo" [routerLink]="['/']">{{headerTitle}}</a>
   </div>
+
 </div>
+
+
 <div class="header-container">
+  <mat-slide-toggle class="mx-4" [(ngModel)]="fa">FA/EN</mat-slide-toggle>
   <nb-actions size="small">
     <nb-action>
       <nb-user nbContextMenuTag="user-context-menu" [nbContextMenu]="userMenu" [name]="user?.title"
