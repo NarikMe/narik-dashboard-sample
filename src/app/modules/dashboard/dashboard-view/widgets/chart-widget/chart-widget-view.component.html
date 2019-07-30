@@ -3,8 +3,8 @@
 </ng-template>
 
 <ng-template #content>
-  <div class="p-2" [class]="model.theme || 'light'" [ngClass]="{'full-screen-chart': isFullScreen}"
-    [style.height.px]=" model.containerHeight || model.height">
+  <div class="p-2" style="direction: ltr" [class]="model.theme || 'light'"
+    [ngClass]="{'full-screen-chart': isFullScreen}" [style.height.px]=" model.containerHeight || model.height">
     <ngx-charts-bar-vertical *ngIf="model.chartType === 'bar-vertical'" class="chart-container" [view]="view"
       [scheme]="colorScheme" [schemeType]="model.schemeType" [customColors]="customColors" [results]="chartData"
       [animations]="model.animations" [gradient]="model.gradient" [xAxis]="model.showXAxis" [yAxis]="model.showYAxis"
@@ -215,10 +215,11 @@
       [legend]="model.showLegend" [gradient]="model.gradient" (legendLabelClick)="onLegendLabelClick($event)"
       [xAxis]="model.showXAxis" [yAxis]="model.showYAxis" [showXAxisLabel]="model.showXAxisLabel"
       [showYAxisLabel]="model.showYAxisLabel" [xAxisLabel]="model.xAxisLabel" [yAxisLabel]="model.yAxisLabel"
-      [innerPadding]="model.innerPadding" [tooltipDisabled]="model.tooltipDisabled" [trimXAxisTicks]="model.trimXAxisTicks"
-      [trimYAxisTicks]="model.trimYAxisTicks" [rotateXAxisTicks]="model.rotateXAxisTicks"
-      [maxXAxisTickLength]="model.maxXAxisTickLength" [maxYAxisTickLength]="model.maxYAxisTickLength"
-      (select)="select($event)" (activate)="activate($event)" (deactivate)="deactivate($event)">
+      [innerPadding]="model.innerPadding" [tooltipDisabled]="model.tooltipDisabled"
+      [trimXAxisTicks]="model.trimXAxisTicks" [trimYAxisTicks]="model.trimYAxisTicks"
+      [rotateXAxisTicks]="model.rotateXAxisTicks" [maxXAxisTickLength]="model.maxXAxisTickLength"
+      [maxYAxisTickLength]="model.maxYAxisTickLength" (select)="select($event)" (activate)="activate($event)"
+      (deactivate)="deactivate($event)">
     </ngx-charts-heat-map>
     <ngx-charts-heat-map *ngIf="model.chartType === 'calendar'" class="chart-container" [view]="view"
       [scheme]="colorScheme" [results]="calendarData" [animations]="model.animations" [legend]="model.showLegend"
@@ -253,8 +254,9 @@
       (legendLabelClick)="onLegendLabelClick($event)" (activate)="activate($event)" (deactivate)="deactivate($event)">
     </ngx-charts-gauge>
     <ngx-charts-linear-gauge *ngIf="model.chartType === 'linear-gauge'" class="chart-container" [view]="view"
-      [scheme]="colorScheme" [animations]="model.animations" [min]="model.gaugeMin" [max]="model.gaugeMax" [value]="model.gaugeValue"
-      [previousValue]="model.gaugePreviousValue" [units]="model.gaugeUnits" (select)="select($event)">
+      [scheme]="colorScheme" [animations]="model.animations" [min]="model.gaugeMin" [max]="model.gaugeMax"
+      [value]="model.gaugeValue" [previousValue]="model.gaugePreviousValue" [units]="model.gaugeUnits"
+      (select)="select($event)">
     </ngx-charts-linear-gauge>
 
     <div class="chart-container" *ngIf="model.chartType === 'tree-map-demo'"
