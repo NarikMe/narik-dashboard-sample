@@ -3,26 +3,29 @@ import { Input, ElementRef, Injector, OnInit } from "@angular/core";
 import { isEquivalent } from "narik-common";
 import { DataSourceService } from "../service/dataSource.service";
 import { NarikInject } from "narik-core";
-import { fromEvent } from "rxjs";
+import { fromEvent, Subject } from "rxjs";
 import { NarikComponent } from "narik-infrastructure";
 import { takeWhile } from "rxjs/internal/operators/takeWhile";
+import { debounceTime } from "rxjs/internal/operators/debounceTime";
+import { distinctUntilChanged } from "rxjs/internal/operators/distinctUntilChanged";
 
 export class WidgetView extends NarikComponent implements OnInit {
   isFullScreen = false;
   enabledFullScreen = false;
   displayTitle = true;
+  _model: WidgetModel = {};
+  _size: number;
   @NarikInject(DataSourceService)
   protected dataSourceService: DataSourceService;
 
   @NarikInject(ElementRef)
   protected elementRef: ElementRef;
 
-  _model: WidgetModel = {};
+  private sizeChangedSubject = new Subject<number>();
 
-  _size: number;
   set size(value: number) {
     if (this._size && this._size !== value) {
-      this.doOnResize();
+      this.sizeChangedSubject.next(value);
     }
     this._size = value;
   }
@@ -48,6 +51,15 @@ export class WidgetView extends NarikComponent implements OnInit {
 
   constructor(private injector: Injector) {
     super();
+    this.sizeChangedSubject
+      .pipe(
+        debounceTime(200),
+        distinctUntilChanged(),
+        takeWhile(() => this.isAlive)
+      )
+      .subscribe(size => {
+        this.doOnResize(size);
+      });
   }
 
   ngOnInit(): void {
@@ -80,5 +92,5 @@ export class WidgetView extends NarikComponent implements OnInit {
     }
   }
 
-  doOnResize() {}
+  doOnResize(newSize: number) {}
 }

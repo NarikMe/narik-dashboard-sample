@@ -100,12 +100,12 @@ export class ChartWidgetViewComponent extends WidgetView
       this.closedCurve =
         this.curves[this.model.closedCurve] || this.curves["default"];
     }
-    this.doOnResize();
+    this.doOnResize(0);
   }
 
   ngAfterViewInit(): void {}
 
-  doOnResize() {
+  doOnResize(newSize: number) {
     this.view = [0, 0];
     setTimeout(() => {
       if (this.model && (this.model.width || this.model.height)) {
