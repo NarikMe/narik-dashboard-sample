@@ -150,6 +150,11 @@
             "key": "export",
             "icon": "cloud_download",
             "tooltip": "dashboard.export_cell"
+          },"-",
+          {
+            "key": "importSample",
+            "icon": "cloud_upload",
+            "tooltip": "dashboard.import_sample"
           }
         ]
       },

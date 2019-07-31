@@ -20,6 +20,7 @@
     "remove_cell": "حذف سلول",
     "clear_cell": "خالی کردن سلول",
     "import_cell": "دریافت",
+    "import_sample":"لود داشبورد مثال",
     "export_cell": "ارسال",
     "design": "طراحی ویجت",
     "title": "عنوان",

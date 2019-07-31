@@ -7,6 +7,7 @@ import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
 import { saveAs } from "file-saver";
 import { DashboardService } from "../../dashboard-share/service/dashboard.service";
 import { WidgetViewType } from "../../dashboard-share/base/widget-view-type";
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: "dashboard-designer",
@@ -32,7 +33,10 @@ export class DashboardDesignerComponent implements OnInit, CommandHost {
   @ViewChild("importFile", { static: false })
   importFile: ElementRef<any>;
 
-  constructor(private dashboardService: DashboardService) {}
+  constructor(
+    private dashboardService: DashboardService,
+    private httpClient: HttpClient
+  ) {}
 
   ngOnInit() {}
 
@@ -49,6 +53,10 @@ export class DashboardDesignerComponent implements OnInit, CommandHost {
       this.importFile.nativeElement.click();
     } else if (cmd.commandKey === "export") {
       this.export();
+    } else if (cmd.commandKey === "importSample") {
+      this.httpClient.get(`assets/samples/1.json`).subscribe((result: any) => {
+        this.rows = result.rows;
+      });
     }
   }
 

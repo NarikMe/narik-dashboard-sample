@@ -20,6 +20,7 @@
     "remove_cell": "Remove",
     "clear_cell": "Clear",
     "import_cell": "Import",
+    "import_sample":"Import sample dashboard",
     "export_cell": "Export",
     "design": "Design Widget",
     "title": "Title",
