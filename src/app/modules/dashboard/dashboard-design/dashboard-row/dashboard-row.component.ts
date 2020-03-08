@@ -4,7 +4,7 @@ import {
   CommandInfo,
   DialogService,
   DialogResult
-} from "narik-infrastructure";
+} from "@narik/infrastructure";
 import {
   Component,
   Input,

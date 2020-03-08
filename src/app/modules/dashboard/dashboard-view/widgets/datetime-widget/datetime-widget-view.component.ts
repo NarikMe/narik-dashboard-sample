@@ -4,7 +4,9 @@ import { Component, OnInit, OnDestroy, Injector } from "@angular/core";
 import { WidgetView } from "../../../dashboard-share/base/widget-view";
 import { WidgetViewUi } from "src/app/templates/template.decorator";
 import { interval } from "rxjs/internal/observable/interval";
+import { DynamicForm } from "@narik/core";
 
+@DynamicForm("DatetimeWidgetViewComponent")
 @WidgetViewUi()
 @Component({
   templateUrl: "./datetime-widget-view.component.html",
@@ -12,8 +14,6 @@ import { interval } from "rxjs/internal/observable/interval";
 })
 export class DatetimeWidgetViewComponent extends WidgetView
   implements OnInit, OnDestroy {
-  static readonly COMPONENT_NAME = "DatetimeWidgetViewComponent";
-
   today: any = new Date();
   displayTitle = false;
   isAlive = true;

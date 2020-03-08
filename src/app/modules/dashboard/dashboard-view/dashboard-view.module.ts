@@ -1,17 +1,18 @@
 import { NgMathPipesModule } from "angular-pipes";
-import { NarikCommonModule } from "narik-common";
+import { NarikCommonModule } from "@narik/common";
 import {
   NarikMatBusyIndicatorModule,
   NarikMatToolbarModule,
   NarikMatCheckBoxModule,
   NarikMatDataTableModule
-} from "narik-ui-material";
+} from "@narik/ui-material";
 import { DateFnsModule } from "ngx-date-fns";
 
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
-import { MatChipsModule, MatIconModule } from "@angular/material";
+import { MatIconModule } from "@angular/material/icon";
+import { MatChipsModule } from "@angular/material/chips";
 import { MatCardModule } from "@angular/material/card";
 import { MatListModule } from "@angular/material/list";
 import { RouterModule } from "@angular/router";

@@ -2,10 +2,10 @@ import { UUID } from "angular2-uuid";
 
 import { WidgetModel } from "./widget-model";
 import { Input, OnInit } from "@angular/core";
-import { isEquivalent } from "narik-common";
-import { NarikInject } from "narik-core";
+import { isEquivalent } from "@narik/common";
+import { NarikInject } from "@narik/core";
 import { DataSourceService } from "../service/dataSource.service";
-import { NarikComponent } from "narik-infrastructure";
+import { NarikComponent } from "@narik/infrastructure";
 
 export class WidgetDesign extends NarikComponent implements OnInit {
   @NarikInject(DataSourceService)

@@ -9,7 +9,7 @@
     <small class="text-muted">{{model.title}}</small><span fxflex=""
       style="flex: 1 1 0%; box-sizing: border-box;"></span>
     <mat-chip color="{{ kpiInfo.trade >= 0 ?'primary':'warn'}}" role="option" selected="true" class="icon-chip">
-      <mat-icon>{{ kpiInfo.trade >= 0 ?"trending_up":"trending_down"}}</mat-icon>{{kpiInfo.trade | abs}}%
+      <mat-icon>{{ kpiInfo.trade >= 0 ?"trending_up":"trending_down"}}</mat-icon>{{kpiInfo.trade }}%
     </mat-chip>
   </mat-card-title>
   <div>

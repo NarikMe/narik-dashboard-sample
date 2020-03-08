@@ -1,10 +1,10 @@
 import { WidgetModel } from "./widget-model";
 import { Input, ElementRef, Injector, OnInit } from "@angular/core";
-import { isEquivalent } from "narik-common";
+import { isEquivalent } from "@narik/common";
 import { DataSourceService } from "../service/dataSource.service";
-import { NarikInject } from "narik-core";
+import { NarikInject } from "@narik/core";
 import { fromEvent, Subject } from "rxjs";
-import { NarikComponent } from "narik-infrastructure";
+import { NarikComponent } from "@narik/infrastructure";
 import { takeWhile } from "rxjs/internal/operators/takeWhile";
 import { debounceTime } from "rxjs/internal/operators/debounceTime";
 import { distinctUntilChanged } from "rxjs/internal/operators/distinctUntilChanged";

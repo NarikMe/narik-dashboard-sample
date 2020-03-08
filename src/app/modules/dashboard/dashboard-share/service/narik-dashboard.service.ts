@@ -5,7 +5,10 @@ import { Type, ComponentFactoryResolver, Injectable } from "@angular/core";
 
 import { WidgetViewType } from "../base/widget-view-type";
 import { DashboardService, WidgetTypeGroup } from "./dashboard.service";
-import { DataProviderService } from "narik-infrastructure";
+import {
+  DataProviderService,
+  ComponentTypeResolver
+} from "@narik/infrastructure";
 
 @Injectable()
 export class NarikDashboardService extends DashboardService {
@@ -14,7 +17,7 @@ export class NarikDashboardService extends DashboardService {
   private componentTypes = new Map<string, Type<any>>();
   constructor(
     private dataProvider: DataProviderService,
-    private componentFactoryResolver: ComponentFactoryResolver
+    private typeResolver: ComponentTypeResolver
   ) {
     super();
   }
@@ -61,22 +64,10 @@ export class NarikDashboardService extends DashboardService {
           }
         }
 
-        const factories = Array.from(
-          this.componentFactoryResolver["_factories"].keys()
-        );
-        const factoryClass = factories.find(
-          (x: any) =>
-            x.name === typeString || x["COMPONENT_NAME"] === typeString
-        );
+        const componentTye = this.typeResolver.resolveComponentType(typeString);
 
-        if (!factoryClass) {
-          throw new Error(`colud not find entry for "${typeString}"`);
-        }
-        this.componentTypes.set(
-          `${widgetKey}_${widgetViewType}`,
-          factoryClass as Type<any>
-        );
-        return factoryClass as Type<any>;
+        this.componentTypes.set(`${widgetKey}_${widgetViewType}`, componentTye);
+        return componentTye;
       }
     }
     return undefined;

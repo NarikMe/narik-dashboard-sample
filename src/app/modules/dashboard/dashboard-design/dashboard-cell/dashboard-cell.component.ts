@@ -3,7 +3,7 @@ import {
   CommandInfo,
   DialogResult,
   DialogService
-} from "narik-infrastructure";
+} from "@narik/infrastructure";
 import { DashboardCell } from "./../../dashboard-share/base/dashboard-cell";
 import {
   Component,
@@ -14,11 +14,12 @@ import {
   Output,
   EventEmitter,
   ViewChild,
-  ElementRef
+  ElementRef,
+  ComponentFactoryResolver
 } from "@angular/core";
 import { Observable } from "rxjs/internal/Observable";
 import { SelectWidgetTypeComponent } from "../select-widget-type/select-widget-type.component";
-import { DialogActions } from "narik-core";
+import { DialogActions } from "@narik/core";
 import { DashboardService } from "../../dashboard-share/service/dashboard.service";
 import { WidgetViewType } from "../../dashboard-share/base/widget-view-type";
 import { WidgetDesign } from "../../dashboard-share/base/widget-design";
@@ -74,7 +75,8 @@ export class DashboardCellComponent implements OnInit, CommandHost {
 
   constructor(
     private dialogService: DialogService,
-    private dashboardService: DashboardService
+    private dashboardService: DashboardService,
+    private resolver: ComponentFactoryResolver
   ) {}
 
   ngOnInit() {}
@@ -129,7 +131,12 @@ export class DashboardCellComponent implements OnInit, CommandHost {
         {
           model: cloneDeep(this.cell.widgetInfo.widgetModel)
         },
-        DialogActions.ok_cancel
+        DialogActions.ok_cancel,
+        undefined,
+        undefined,
+        undefined,
+        undefined,
+        this.resolver
       )
       .closed.then((x: DialogResult<WidgetDesign>) => {
         if (x.dialogResult === "ok") {

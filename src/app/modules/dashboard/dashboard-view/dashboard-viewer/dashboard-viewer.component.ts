@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, ViewChild, ElementRef } from "@angular/core";
 
 import { DashboardRow } from "../../dashboard-share/base/dashboard-row";
-import { CommandHost, CommandInfo } from "narik-infrastructure";
+import { CommandHost, CommandInfo } from "@narik/infrastructure";
 import { Observable } from "rxjs/internal/Observable";
 import { DashboardService } from "../../dashboard-share/service/dashboard.service";
 import { WidgetViewType } from "../../dashboard-share/base/widget-view-type";

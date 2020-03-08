@@ -1,6 +1,6 @@
 import { DataSourceService, DashboardDataSource } from "./dataSource.service";
 import { Observable } from "rxjs/internal/Observable";
-import { DataProviderService } from "narik-infrastructure";
+import { DataProviderService } from "@narik/infrastructure";
 import { of } from "rxjs/internal/observable/of";
 import { Injectable } from "@angular/core";
 

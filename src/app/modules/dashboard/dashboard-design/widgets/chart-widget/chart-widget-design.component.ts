@@ -3,16 +3,17 @@ import { Component, OnInit } from "@angular/core";
 import { WidgetDesign } from "../../../dashboard-share/base/widget-design";
 import { WidgetDesignUi } from "../../../../../templates/template.decorator";
 import chartGroups from "./chartTypes";
-import { colorSets } from "@swimlane/ngx-charts/release/utils";
-import { toDtoArray } from "narik-common";
+import { colorSets } from "@swimlane/ngx-charts";
+import { toDtoArray } from "@narik/common";
+import { DynamicForm } from "@narik/core";
 
+@DynamicForm("ChartWidgetDesignComponent")
 @WidgetDesignUi()
 @Component({
   templateUrl: "./chart-widget-design.component.html",
   styleUrls: ["chart-widget-design.component.css"]
 })
 export class ChartWidgetDesignComponent extends WidgetDesign implements OnInit {
-  static readonly COMPONENT_NAME = "ChartWidgetDesignComponent";
   chartGroups: any[] = chartGroups;
   needDataSource = true;
   chart: any = { options: [] };

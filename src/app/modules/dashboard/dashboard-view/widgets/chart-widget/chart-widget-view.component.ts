@@ -2,9 +2,11 @@ import { Component, Injector, AfterViewInit } from "@angular/core";
 
 import { WidgetView } from "../../../dashboard-share/base/widget-view";
 import { WidgetViewUi } from "src/app/templates/template.decorator";
-import { colorSets } from "@swimlane/ngx-charts/release/utils";
+import { colorSets } from "@swimlane/ngx-charts";
 import * as shape from "d3-shape";
+import { DynamicForm } from "@narik/core";
 
+@DynamicForm("ChartWidgetViewComponent")
 @WidgetViewUi()
 @Component({
   templateUrl: "./chart-widget-view.component.html",
@@ -12,8 +14,6 @@ import * as shape from "d3-shape";
 })
 export class ChartWidgetViewComponent extends WidgetView
   implements AfterViewInit {
-  static readonly COMPONENT_NAME = "ChartWidgetViewComponent";
-
   chartData: any[];
   enabledFullScreen = true;
   view: any[];

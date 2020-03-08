@@ -2,15 +2,16 @@ import { Component, Injector } from "@angular/core";
 
 import { WidgetView } from "../../../dashboard-share/base/widget-view";
 import { WidgetViewUi } from "src/app/templates/template.decorator";
-import { MatLocalDataSource } from "narik-ui-material";
+import { MatLocalDataSource } from "@narik/ui-material";
+import { DynamicForm } from "@narik/core";
 
+@DynamicForm("DataTableWidgetViewComponent")
 @WidgetViewUi()
 @Component({
   templateUrl: "./data-table-widget-view.component.html",
   styleUrls: ["data-table-widget-view.component.css"]
 })
 export class DataTableWidgetViewComponent extends WidgetView {
-  static readonly COMPONENT_NAME = "DataTableWidgetViewComponent";
   dataSource: MatLocalDataSource<any> = new MatLocalDataSource<any>(
     undefined,
     undefined

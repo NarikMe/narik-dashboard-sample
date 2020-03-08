@@ -1,11 +1,11 @@
-import { NarikAppCoreModule } from "narik-app-core";
-import { NarikClientStorageModule } from "narik-client-storage";
+import { NarikAppCoreModule } from "@narik/app-core";
+import { NarikClientStorageModule } from "@narik/client-storage";
 import {
   MEMORY_STORAGE_VALIDITY_LEN,
   NarikCoreModule,
   NarikModule,
   NarikTranslateLoader
-} from "narik-core";
+} from "@narik/core";
 import {
   ConfigService,
   MODULE_DATA_KEY,
@@ -13,10 +13,10 @@ import {
   ModuleInfo,
   ModuleManager,
   ModuleEventArg
-} from "narik-infrastructure";
-import { NarikJwtAuthenticationModule } from "narik-jwt-authentication";
-import { NarikUiCoreModule } from "narik-ui-core";
-import { FORM_ITEM_DEFAULT_CLASS } from "narik-ui-material";
+} from "@narik/infrastructure";
+import { NarikJwtAuthenticationModule } from "@narik/jwt-authentication";
+import { NarikUiCoreModule } from "@narik/ui-core";
+import { FORM_ITEM_DEFAULT_CLASS } from "@narik/ui-material";
 import { Observable } from "rxjs/internal/Observable";
 
 import { HttpClient, HttpClientModule } from "@angular/common/http";

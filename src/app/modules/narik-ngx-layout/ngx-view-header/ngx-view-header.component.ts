@@ -1,4 +1,4 @@
-import { AuthenticationService } from "narik-infrastructure";
+import { AuthenticationService } from "@narik/infrastructure";
 import { Component, Input } from "@angular/core";
 import {
   NbSidebarService,

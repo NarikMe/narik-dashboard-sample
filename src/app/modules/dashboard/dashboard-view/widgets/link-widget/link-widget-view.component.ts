@@ -2,7 +2,9 @@ import { Component, Injector } from "@angular/core";
 
 import { WidgetView } from "../../../dashboard-share/base/widget-view";
 import { WidgetViewUi } from "src/app/templates/template.decorator";
+import { DynamicForm } from "@narik/core";
 
+@DynamicForm("LinkWidgetViewComponent")
 @WidgetViewUi()
 @Component({
   templateUrl: "./link-widget-view.component.html",
@@ -15,7 +17,6 @@ import { WidgetViewUi } from "src/app/templates/template.decorator";
   ]
 })
 export class LinkWidgetViewComponent extends WidgetView {
-  static readonly COMPONENT_NAME = "LinkWidgetViewComponent";
   constructor(injector: Injector) {
     super(injector);
   }
