@@ -7,7 +7,7 @@
           "widgetInfo": {
             "widgetTypeKey": "Datetime",
             "widgetModel": {
-              "format": "dddd Do MMM yyyy HH:mm:ss",
+              "format": "dd  MMM yyyy HH:mm:ss",
               "isActive": true,
               "uniqueId": "9b5833b2-4af5-0453-bdc7-1f08f559e87c"
             }

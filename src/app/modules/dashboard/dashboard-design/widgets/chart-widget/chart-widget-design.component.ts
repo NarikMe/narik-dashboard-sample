@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Injector } from "@angular/core";
 
 import { WidgetDesign } from "../../../dashboard-share/base/widget-design";
 import { WidgetDesignUi } from "../../../../../templates/template.decorator";
@@ -11,7 +11,7 @@ import { DynamicForm } from "@narik/core";
 @WidgetDesignUi()
 @Component({
   templateUrl: "./chart-widget-design.component.html",
-  styleUrls: ["chart-widget-design.component.css"]
+  styleUrls: ["chart-widget-design.component.css"],
 })
 export class ChartWidgetDesignComponent extends WidgetDesign implements OnInit {
   chartGroups: any[] = chartGroups;
@@ -29,56 +29,56 @@ export class ChartWidgetDesignComponent extends WidgetDesign implements OnInit {
     "Natural",
     "Step",
     "Step After",
-    "Step Before"
+    "Step Before",
   ]);
 
   closedCurves = toDtoArray([
     "Basis Closed",
     "Cardinal Closed",
     "Catmull Rom Closed",
-    "Linear Closed"
+    "Linear Closed",
   ]);
 
   themes: any[] = [
     {
       id: "dark",
-      title: "Dark"
+      title: "Dark",
     },
     {
       id: "light",
-      title: "Light"
-    }
+      title: "Light",
+    },
   ];
   legendPositions: any[] = [
     {
       id: "right",
-      title: "Right"
+      title: "Right",
     },
     {
       id: "below",
-      title: "Below"
-    }
+      title: "Below",
+    },
   ];
   schemeTypes: any[] = [
     {
       id: "ordinal",
-      title: "Ordinal"
+      title: "Ordinal",
     },
     {
       id: "linear",
-      title: "Linear"
-    }
+      title: "Linear",
+    },
   ];
 
-  colorSchemes: any[] = colorSets.map(x => {
+  colorSchemes: any[] = colorSets.map((x) => {
     return {
       id: x.name,
-      title: x.name
+      title: x.name,
     };
   });
 
-  constructor() {
-    super();
+  constructor(injector: Injector) {
+    super(injector);
   }
 
   afterModelSet() {
@@ -88,7 +88,7 @@ export class ChartWidgetDesignComponent extends WidgetDesign implements OnInit {
   }
   selectChart(chartSelector) {
     for (const group of this.chartGroups) {
-      this.chart = group.charts.find(x => x.selector === chartSelector);
+      this.chart = group.charts.find((x) => x.selector === chartSelector);
       if (this.chart) {
         break;
       }

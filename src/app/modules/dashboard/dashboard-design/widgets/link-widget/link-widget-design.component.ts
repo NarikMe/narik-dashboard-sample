@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, Injector } from "@angular/core";
 
 import { WidgetDesign } from "../../../dashboard-share/base/widget-design";
 import { WidgetDesignUi } from "../../../../../templates/template.decorator";
@@ -14,6 +14,10 @@ export class LinkWidgetDesignComponent extends WidgetDesign {
     linkTitle: "",
     link: ""
   };
+
+  constructor(injector: Injector) {
+    super(injector);
+  }
 
   add() {
     if (this.currentLink.link && this.currentLink.linkTitle) {
