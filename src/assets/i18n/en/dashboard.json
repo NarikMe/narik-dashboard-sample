@@ -29,7 +29,7 @@
       "link": "Link",
       "chart": "Chart",
       "todo": "To Do List",
-      "dateTime": "Date/Time",
+      "datetime": "Date/Time",
       "dataTable": "Data Table",
       "kpi": "kpi"
     },
