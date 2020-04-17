@@ -67,7 +67,7 @@
     "views": [
       {
         "key": "branch",
-        "viewType": "Detail",
+        "viewType": "Edit",
         "entity": "branch"
       },
       {
@@ -113,7 +113,7 @@
       }
     ],
     "toolbars": [
-      "$$toolbar.detailToolBar",
+      "$$toolbar.editToolBar",
       "$$toolbar.listToolBar",
       {
         "key": "dashboard-designer",

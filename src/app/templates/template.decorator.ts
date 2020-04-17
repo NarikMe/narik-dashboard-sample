@@ -8,9 +8,9 @@ export function NarikListUi() {
   return typeDecorator;
 }
 
-export function NarikDetailUi() {
+export function NarikEditUi() {
   const typeDecorator: TypeDecorator = function Decorator(cls: any) {
-    return applyBaseTemplate(cls, "NarikDetailUi");
+    return applyBaseTemplate(cls, "NarikEditUi");
   };
   return typeDecorator;
 }
