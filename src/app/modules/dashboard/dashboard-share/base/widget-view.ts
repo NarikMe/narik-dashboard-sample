@@ -1,5 +1,5 @@
 import { WidgetModel } from "./widget-model";
-import { Input, ElementRef, Injector, OnInit } from "@angular/core";
+import { Input, ElementRef, Injector, OnInit, Directive } from "@angular/core";
 import { isEquivalent } from "@narik/common";
 import { DataSourceService } from "../service/dataSource.service";
 import { NarikInject } from "@narik/core";
@@ -9,6 +9,7 @@ import { takeWhile } from "rxjs/internal/operators/takeWhile";
 import { debounceTime } from "rxjs/internal/operators/debounceTime";
 import { distinctUntilChanged } from "rxjs/internal/operators/distinctUntilChanged";
 
+@Directive()
 export class WidgetView extends NarikComponent implements OnInit {
   isFullScreen = false;
   enabledFullScreen = false;
@@ -57,7 +58,7 @@ export class WidgetView extends NarikComponent implements OnInit {
         distinctUntilChanged(),
         takeWhile(() => this.isAlive)
       )
-      .subscribe(size => {
+      .subscribe((size) => {
         this.doOnResize(size);
       });
   }

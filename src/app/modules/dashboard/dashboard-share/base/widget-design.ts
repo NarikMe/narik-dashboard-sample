@@ -1,12 +1,13 @@
 import { UUID } from "angular2-uuid";
 
 import { WidgetModel } from "./widget-model";
-import { Input, OnInit, Injector } from "@angular/core";
+import { Input, OnInit, Injector, Directive } from "@angular/core";
 import { isEquivalent } from "@narik/common";
 import { NarikInject } from "@narik/core";
 import { DataSourceService } from "../service/dataSource.service";
 import { NarikComponent, PARAMETERS } from "@narik/infrastructure";
 
+@Directive()
 export class WidgetDesign extends NarikComponent implements OnInit {
   @NarikInject(DataSourceService)
   protected dataSourceService: DataSourceService;

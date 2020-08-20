@@ -1,5 +1,5 @@
 <narik-busy-indicator>
-  <narik-toolbar toolbarKey="dashboard-designer"></narik-toolbar>
+  <narik-toolbar [host]="this" toolbarKey="dashboard-designer"></narik-toolbar>
   <div class="container-fluid row-list dashboard-body" cdkDropList (cdkDropListDropped)="drop($event)">
     <div *ngFor="let row of rows" class="row row-item" cdkDrag [ngClass]="{'selected': row===selectedRow}">
       <dashboard-row (dblclick)="selectedRow=undefined;" (click)="selectedRow=row"

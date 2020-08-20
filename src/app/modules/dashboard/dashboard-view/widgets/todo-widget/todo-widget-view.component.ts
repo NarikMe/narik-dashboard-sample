@@ -1,14 +1,13 @@
 import { Component, Injector } from "@angular/core";
 
 import { WidgetView } from "../../../dashboard-share/base/widget-view";
-import { WidgetViewUi } from "src/app/templates/template.decorator";
+
 import { DynamicForm } from "@narik/core";
 
 @DynamicForm("TodoWidgetViewComponent")
-@WidgetViewUi()
 @Component({
   templateUrl: "./todo-widget-view.component.html",
-  styleUrls: ["todo-widget-view.component.css"]
+  styleUrls: ["todo-widget-view.component.css"],
 })
 export class TodoWidgetViewComponent extends WidgetView {
   todoItems: any[] = [];
@@ -19,11 +18,11 @@ export class TodoWidgetViewComponent extends WidgetView {
     if (this.model.dataSource) {
       this.dataSourceService
         .dataSourceData(this.model.dataSource)
-        .subscribe(x => (this.todoItems = x));
+        .subscribe((x) => (this.todoItems = x));
     }
   }
 
   get remainCount() {
-    return this.todoItems.filter(x => !x.done).length;
+    return this.todoItems.filter((x) => !x.done).length;
   }
 }

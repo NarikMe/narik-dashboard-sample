@@ -1,16 +1,15 @@
 import { Component, Injector, AfterViewInit } from "@angular/core";
 
 import { WidgetView } from "../../../dashboard-share/base/widget-view";
-import { WidgetViewUi } from "src/app/templates/template.decorator";
+
 import { colorSets } from "@swimlane/ngx-charts";
 import * as shape from "d3-shape";
 import { DynamicForm } from "@narik/core";
 
 @DynamicForm("ChartWidgetViewComponent")
-@WidgetViewUi()
 @Component({
   templateUrl: "./chart-widget-view.component.html",
-  styleUrls: ["chart-widget-view.component.scss"]
+  styleUrls: ["chart-widget-view.component.scss"],
 })
 export class ChartWidgetViewComponent extends WidgetView
   implements AfterViewInit {
@@ -40,7 +39,7 @@ export class ChartWidgetViewComponent extends WidgetView
     Step: shape.curveStep,
     "Step After": shape.curveStepAfter,
     "Step Before": shape.curveStepBefore,
-    default: shape.curveLinear
+    default: shape.curveLinear,
   };
   curve: any = this.curves["Linear"];
   closedCurve: any = this.curves["Linear Closed"];
@@ -50,7 +49,7 @@ export class ChartWidgetViewComponent extends WidgetView
     this.setColorScheme("cool");
   }
   setColorScheme(name) {
-    this.colorScheme = colorSets.find(s => s.name === name);
+    this.colorScheme = colorSets.find((s) => s.name === name);
   }
 
   select(data) {
@@ -82,7 +81,7 @@ export class ChartWidgetViewComponent extends WidgetView
     if (this.model.dataSource) {
       this.dataSourceService
         .dataSourceData(this.model.dataSource)
-        .subscribe(x => (this.chartData = x));
+        .subscribe((x) => (this.chartData = x));
     }
 
     if (this.model.width || this.model.height) {

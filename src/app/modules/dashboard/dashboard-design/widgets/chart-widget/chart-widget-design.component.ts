@@ -1,20 +1,19 @@
 import { Component, OnInit, Injector } from "@angular/core";
 
 import { WidgetDesign } from "../../../dashboard-share/base/widget-design";
-import { WidgetDesignUi } from "../../../../../templates/template.decorator";
+
 import chartGroups from "./chartTypes";
 import { colorSets } from "@swimlane/ngx-charts";
 import { toDtoArray } from "@narik/common";
 import { DynamicForm } from "@narik/core";
 
 @DynamicForm("ChartWidgetDesignComponent")
-@WidgetDesignUi()
 @Component({
   templateUrl: "./chart-widget-design.component.html",
   styleUrls: ["chart-widget-design.component.css"],
 })
 export class ChartWidgetDesignComponent extends WidgetDesign implements OnInit {
-  chartGroups: any[] = chartGroups;
+  chartGroups: any[] = [];
   needDataSource = true;
   chart: any = { options: [] };
 
@@ -79,9 +78,11 @@ export class ChartWidgetDesignComponent extends WidgetDesign implements OnInit {
 
   constructor(injector: Injector) {
     super(injector);
+    this.chartGroups = chartGroups;
   }
 
   afterModelSet() {
+    this.chartGroups = chartGroups;
     if (this.model && this.model.chartType) {
       this.selectChart(this.model.chartType);
     }

@@ -5,7 +5,7 @@
   </div>
   <div class="row-toolbar"  (mouseenter)="isMouseOver=true;" (mouseleave)="isMouseOver=false;">
     <mat-icon class="row-menu">more_horiz</mat-icon>
-    <narik-toolbar itemsStyle="mat-mini-fab" *ngIf="isMouseOver" toolbarKey="dashboard-row">
+    <narik-toolbar [host]="this" itemsStyle="mat-mini-fab" *ngIf="isMouseOver" toolbarKey="dashboard-row">
     </narik-toolbar>
   </div>
 
