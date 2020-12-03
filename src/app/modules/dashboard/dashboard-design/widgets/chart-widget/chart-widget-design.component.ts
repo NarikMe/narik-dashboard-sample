@@ -5,9 +5,9 @@ import { WidgetDesign } from "../../../dashboard-share/base/widget-design";
 import chartGroups from "./chartTypes";
 import { colorSets } from "@swimlane/ngx-charts";
 import { toDtoArray } from "@narik/common";
-import { DynamicForm } from "@narik/core";
+import { DynamicComponent } from "@narik/core";
 
-@DynamicForm("ChartWidgetDesignComponent")
+@DynamicComponent("ChartWidgetDesignComponent")
 @Component({
   templateUrl: "./chart-widget-design.component.html",
   styleUrls: ["chart-widget-design.component.css"],

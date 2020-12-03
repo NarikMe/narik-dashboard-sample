@@ -1,23 +1,23 @@
-import { Component, Input, OnInit, ViewChild, ElementRef } from "@angular/core";
+import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
 
-import { DashboardRow } from "../../dashboard-share/base/dashboard-row";
-import { CommandHost, CommandInfo } from "@narik/infrastructure";
-import { Observable } from "rxjs/internal/Observable";
-import { DashboardService } from "../../dashboard-share/service/dashboard.service";
-import { WidgetViewType } from "../../dashboard-share/base/widget-view-type";
+import { DashboardRow } from '../../dashboard-share/base/dashboard-row';
+import { CommandHost, CommandInfo } from '@narik/infrastructure';
+import { Observable } from 'rxjs/internal/Observable';
+import { DashboardService } from '../../dashboard-share/service/dashboard.service';
+import { WidgetViewType } from '../../dashboard-share/base/widget-view-type';
 
 @Component({
-  selector: "dashboard-viewer",
-  templateUrl: "dashboard-viewer.component.html",
-  styleUrls: ["dashboard-viewer.component.css"]
+  selector: 'dashboard-viewer',
+  templateUrl: 'dashboard-viewer.component.html',
+  styleUrls: ['dashboard-viewer.component.css'],
 })
 export class DashboardViewerComponent implements OnInit, CommandHost {
-  change: Observable<any>;
+  change$: Observable<any>;
 
   @Input()
   showToolbar = true;
 
-  @ViewChild("importFile", { static: false })
+  @ViewChild('importFile', { static: false })
   importFile: ElementRef<any>;
 
   _rows: DashboardRow[] = [];
@@ -37,7 +37,7 @@ export class DashboardViewerComponent implements OnInit, CommandHost {
   ngOnInit() {}
 
   processCommand(cmd: CommandInfo) {
-    if (cmd.commandKey === "import") {
+    if (cmd.commandKey === 'import') {
       this.importFile.nativeElement.click();
     }
   }
@@ -46,14 +46,14 @@ export class DashboardViewerComponent implements OnInit, CommandHost {
     if (e.target.files[0]) {
       const that = this;
       const reader = new FileReader();
-      reader.readAsText(e.target.files[0], "UTF-8");
-      reader.onload = evt => {
+      reader.readAsText(e.target.files[0], 'UTF-8');
+      reader.onload = (evt) => {
         const newModel = JSON.parse((evt.target as any).result)
           .rows as DashboardRow[];
 
         this.rows = newModel;
       };
-      reader.onerror = evt => {};
+      reader.onerror = (evt) => {};
     }
   }
   applyComponentTypes(rows: DashboardRow[]) {

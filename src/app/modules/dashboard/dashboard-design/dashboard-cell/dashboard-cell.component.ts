@@ -2,9 +2,9 @@ import {
   CommandHost,
   CommandInfo,
   DialogResult,
-  DialogService
-} from "@narik/infrastructure";
-import { DashboardCell } from "./../../dashboard-share/base/dashboard-cell";
+  DialogService,
+} from '@narik/infrastructure';
+import { DashboardCell } from './../../dashboard-share/base/dashboard-cell';
 import {
   Component,
   OnInit,
@@ -15,38 +15,36 @@ import {
   EventEmitter,
   ViewChild,
   ElementRef,
-  ComponentFactoryResolver
-} from "@angular/core";
-import { Observable } from "rxjs/internal/Observable";
-import { SelectWidgetTypeComponent } from "../select-widget-type/select-widget-type.component";
-import { DialogActions } from "@narik/core";
-import { DashboardService } from "../../dashboard-share/service/dashboard.service";
-import { WidgetViewType } from "../../dashboard-share/base/widget-view-type";
-import { WidgetDesign } from "../../dashboard-share/base/widget-design";
-import { saveAs } from "file-saver";
-import { cloneDeep } from "lodash";
+  ComponentFactoryResolver,
+} from '@angular/core';
+import { Observable } from 'rxjs/internal/Observable';
+import { SelectWidgetTypeComponent } from '../select-widget-type/select-widget-type.component';
+import { DialogActions } from '@narik/core';
+import { DashboardService } from '../../dashboard-share/service/dashboard.service';
+import { WidgetViewType } from '../../dashboard-share/base/widget-view-type';
+import { WidgetDesign } from '../../dashboard-share/base/widget-design';
+import { saveAs } from 'file-saver';
+import { cloneDeep } from 'lodash';
 
 @Component({
-  selector: "dashboard-cell",
-  templateUrl: "dashboard-cell.component.html",
-  styleUrls: ["dashboard-cell.component.css"]
+  selector: 'dashboard-cell',
+  templateUrl: 'dashboard-cell.component.html',
+  styleUrls: ['dashboard-cell.component.css'],
 })
 export class DashboardCellComponent implements OnInit, CommandHost {
-  change: Observable<any>;
+  change$: Observable<any>;
 
-  @ViewChild("importFile", { static: false })
+  @ViewChild('importFile', { static: false })
   importFile: ElementRef<any>;
 
   @Input()
   cell: DashboardCell = new DashboardCell();
 
-  @HostBinding("class")
-  classItems = "";
+  @HostBinding('class')
+  classItems = '';
 
   @Output()
-  removeRequest: EventEmitter<DashboardCell> = new EventEmitter<
-    DashboardCell
-  >();
+  removeRequest: EventEmitter<DashboardCell> = new EventEmitter<DashboardCell>();
 
   @Output()
   sizeChange: EventEmitter<any> = new EventEmitter<any>();
@@ -64,10 +62,10 @@ export class DashboardCellComponent implements OnInit, CommandHost {
     this._size = value;
     this.classItems =
       DashboardCell.colClasses
-        .map(x => {
+        .map((x) => {
           return x + this.size.toString();
         })
-        .join(" ") + " mt-1  mt-md-0";
+        .join(' ') + ' mt-1  mt-md-0';
   }
   get size(): number {
     return this._size;
@@ -82,39 +80,39 @@ export class DashboardCellComponent implements OnInit, CommandHost {
   ngOnInit() {}
 
   processCommand(cmd: CommandInfo) {
-    if (cmd.commandKey === "plus") {
+    if (cmd.commandKey === 'plus') {
       if (this.cell.size < 12) {
         this.cell.size++;
       }
-    } else if (cmd.commandKey === "minus") {
+    } else if (cmd.commandKey === 'minus') {
       if (this.cell.size > 1) {
         this.cell.size--;
       }
-    } else if (cmd.commandKey === "remove") {
+    } else if (cmd.commandKey === 'remove') {
       this.dialogService
-        .showConfirm("dashboard.confirm-remove-cell", "Confirm")
+        .showConfirm('dashboard.confirm-remove-cell', 'Confirm')
         .closed.then((result: DialogResult<any>) => {
-          if (result.dialogResult === "yes") {
+          if (result.dialogResult === 'yes') {
             this.removeRequest.emit(this.cell);
           }
         });
-    } else if (cmd.commandKey === "clear") {
+    } else if (cmd.commandKey === 'clear') {
       this.dialogService
-        .showConfirm("dashboard.confirm-clear-cell", "Confirm")
+        .showConfirm('dashboard.confirm-clear-cell', 'Confirm')
         .closed.then((result: DialogResult<any>) => {
-          if (result.dialogResult === "yes") {
+          if (result.dialogResult === 'yes') {
             this.cell.widgetInfo = undefined;
           }
         });
-    } else if (cmd.commandKey === "build") {
+    } else if (cmd.commandKey === 'build') {
       if (this.cell.widgetInfo) {
         this.openDesigner();
       } else {
         this.openSelectWidgetType();
       }
-    } else if (cmd.commandKey === "import") {
+    } else if (cmd.commandKey === 'import') {
       this.importFile.nativeElement.click();
-    } else if (cmd.commandKey === "export") {
+    } else if (cmd.commandKey === 'export') {
       this.export();
     }
   }
@@ -126,20 +124,19 @@ export class DashboardCellComponent implements OnInit, CommandHost {
     );
     this.dialogService
       .showDialog(
-        widgetType,
-        "dashboard.design",
+        this.resolver.resolveComponentFactory(widgetType),
+        'dashboard.design',
         {
-          model: cloneDeep(this.cell.widgetInfo.widgetModel)
+          model: cloneDeep(this.cell.widgetInfo.widgetModel),
         },
         DialogActions.ok_cancel,
         undefined,
         undefined,
         undefined,
-        undefined,
-        this.resolver
+        undefined
       )
       .closed.then((x: DialogResult<WidgetDesign>) => {
-        if (x.dialogResult === "ok") {
+        if (x.dialogResult === 'ok') {
           this.cell.widgetInfo.widgetModel = x.componentInstance.model;
           this.modelChange.emit(x.componentInstance.model);
         }
@@ -150,13 +147,13 @@ export class DashboardCellComponent implements OnInit, CommandHost {
     this.dialogService
       .showDialog(
         SelectWidgetTypeComponent,
-        "dashboard.select-widget-type",
+        'dashboard.select-widget-type',
         undefined,
         DialogActions.ok_cancel,
         undefined,
         (result: DialogResult<SelectWidgetTypeComponent>) => {
           if (
-            result.dialogResult === "ok" &&
+            result.dialogResult === 'ok' &&
             !result.componentInstance.widgetType
           ) {
             return false;
@@ -165,7 +162,7 @@ export class DashboardCellComponent implements OnInit, CommandHost {
         }
       )
       .closed.then((result: DialogResult<SelectWidgetTypeComponent>) => {
-        if (result.dialogResult === "ok") {
+        if (result.dialogResult === 'ok') {
           const widgetTypeObject = result.componentInstance.widgetTypeObject;
           const widgetType = this.dashboardService.widgetComponentType(
             result.componentInstance.widgetTypeGroup,
@@ -180,7 +177,7 @@ export class DashboardCellComponent implements OnInit, CommandHost {
           this.cell.widgetInfo = {
             widgetTypeKey: result.componentInstance.widgetType,
             widgetType,
-            widgetModel
+            widgetModel,
           };
           this.openDesigner();
         }
@@ -191,12 +188,12 @@ export class DashboardCellComponent implements OnInit, CommandHost {
     if (this.cell && this.cell.widgetInfo) {
       const data = {
         widgetModel: this.cell.widgetInfo.widgetModel,
-        widgetTypeKey: this.cell.widgetInfo.widgetTypeKey
+        widgetTypeKey: this.cell.widgetInfo.widgetTypeKey,
       };
       const blob = new Blob([JSON.stringify(data)], {
-        type: "application/octet-stream"
+        type: 'application/octet-stream',
       });
-      saveAs(blob, `${data.widgetModel.title || "data"}.json`);
+      saveAs(blob, `${data.widgetModel.title || 'data'}.json`);
     }
   }
 
@@ -204,8 +201,8 @@ export class DashboardCellComponent implements OnInit, CommandHost {
     if (e.target.files[0]) {
       const that = this;
       const reader = new FileReader();
-      reader.readAsText(e.target.files[0], "UTF-8");
-      reader.onload = evt => {
+      reader.readAsText(e.target.files[0], 'UTF-8');
+      reader.onload = (evt) => {
         const newModel = JSON.parse((evt.target as any).result);
         if (newModel.widgetTypeKey) {
           const widgetType = this.dashboardService.widgetComponentType(
@@ -217,13 +214,13 @@ export class DashboardCellComponent implements OnInit, CommandHost {
           this.cell.widgetInfo = {
             widgetTypeKey: newModel.widgetTypeKey,
             widgetType,
-            widgetModel: newModel.widgetModel
+            widgetModel: newModel.widgetModel,
           };
 
           that.modelChange.emit(newModel);
         }
       };
-      reader.onerror = evt => {};
+      reader.onerror = (evt) => {};
     }
   }
 }

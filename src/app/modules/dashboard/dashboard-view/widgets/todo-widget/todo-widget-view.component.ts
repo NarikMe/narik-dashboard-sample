@@ -2,9 +2,9 @@ import { Component, Injector } from "@angular/core";
 
 import { WidgetView } from "../../../dashboard-share/base/widget-view";
 
-import { DynamicForm } from "@narik/core";
+import { DynamicComponent } from "@narik/core";
 
-@DynamicForm("TodoWidgetViewComponent")
+@DynamicComponent("TodoWidgetViewComponent")
 @Component({
   templateUrl: "./todo-widget-view.component.html",
   styleUrls: ["todo-widget-view.component.css"],

@@ -3,9 +3,9 @@ import { Component, Injector } from "@angular/core";
 import { WidgetView } from "../../../dashboard-share/base/widget-view";
 
 import { MatLocalDataSource } from "@narik/ui-material";
-import { DynamicForm } from "@narik/core";
+import { DynamicComponent } from "@narik/core";
 
-@DynamicForm("DataTableWidgetViewComponent")
+@DynamicComponent("DataTableWidgetViewComponent")
 @Component({
   templateUrl: "./data-table-widget-view.component.html",
   styleUrls: ["data-table-widget-view.component.css"],

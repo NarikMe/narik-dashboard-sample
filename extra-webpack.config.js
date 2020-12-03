@@ -1,7 +1,8 @@
-const AngularCompilerPlugin = require("@ngtools/webpack/src");
-const LayoutResolver = require("./build-tools/layout-resolver");
+const AngularCompilerPlugin = require('@ngtools/webpack/src');
+const LayoutResolver = require('./build-tools/layout-resolver');
 
 module.exports = (config) => {
+  
   const index = config.plugins.findIndex((p) => {
     return p instanceof AngularCompilerPlugin.AngularCompilerPlugin;
   });
@@ -16,9 +17,9 @@ module.exports = (config) => {
   config.module.rules.unshift({
     test: /\.html?$/,
     use: [
-      "raw-loader",
+      'raw-loader',
       {
-        loader: "@narik/webpack-tools",
+        loader: '@narik/webpack-tools',
         options: {
           resolver: new LayoutResolver(),
           basePath: config.plugins[index]._basePath,

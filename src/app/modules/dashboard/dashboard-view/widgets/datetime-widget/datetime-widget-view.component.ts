@@ -4,9 +4,9 @@ import { Component, OnInit, OnDestroy, Injector } from "@angular/core";
 import { WidgetView } from "../../../dashboard-share/base/widget-view";
 
 import { interval } from "rxjs/internal/observable/interval";
-import { DynamicForm } from "@narik/core";
+import { DynamicComponent } from "@narik/core";
 
-@DynamicForm("DatetimeWidgetViewComponent")
+@DynamicComponent("DatetimeWidgetViewComponent")
 @Component({
   templateUrl: "./datetime-widget-view.component.html",
   styleUrls: ["datetime-widget-view.component.css"],

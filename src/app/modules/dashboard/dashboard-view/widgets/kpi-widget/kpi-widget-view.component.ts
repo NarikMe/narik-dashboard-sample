@@ -2,9 +2,9 @@ import { Component, Injector } from "@angular/core";
 
 import { WidgetView } from "../../../dashboard-share/base/widget-view";
 
-import { DynamicForm } from "@narik/core";
+import { DynamicComponent } from "@narik/core";
 
-@DynamicForm("KpiWidgetViewComponent")
+@DynamicComponent("KpiWidgetViewComponent")
 @Component({
   templateUrl: "./kpi-widget-view.component.html",
   styleUrls: ["kpi-widget-view.component.css"],

@@ -2,9 +2,9 @@ import { Component, Injector } from "@angular/core";
 
 import { WidgetDesign } from "../../../dashboard-share/base/widget-design";
 
-import { DynamicForm } from "@narik/core";
+import { DynamicComponent } from "@narik/core";
 
-@DynamicForm("DataTableWidgetDesignComponent")
+@DynamicComponent("DataTableWidgetDesignComponent")
 @Component({
   templateUrl: "./data-table-widget-design.component.html",
 })

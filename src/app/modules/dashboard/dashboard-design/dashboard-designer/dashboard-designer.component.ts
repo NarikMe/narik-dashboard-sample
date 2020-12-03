@@ -1,21 +1,21 @@
-import { Component, Input, OnInit, ViewChild, ElementRef } from "@angular/core";
+import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
 
-import { DashboardRow } from "../../dashboard-share/base/dashboard-row";
-import { CommandHost, CommandInfo } from "@narik/infrastructure";
-import { Observable } from "rxjs/internal/Observable";
-import { CdkDragDrop, moveItemInArray } from "@angular/cdk/drag-drop";
-import { saveAs } from "file-saver";
-import { DashboardService } from "../../dashboard-share/service/dashboard.service";
-import { WidgetViewType } from "../../dashboard-share/base/widget-view-type";
-import { HttpClient } from "@angular/common/http";
+import { DashboardRow } from '../../dashboard-share/base/dashboard-row';
+import { CommandHost, CommandInfo } from '@narik/infrastructure';
+import { Observable } from 'rxjs/internal/Observable';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { saveAs } from 'file-saver';
+import { DashboardService } from '../../dashboard-share/service/dashboard.service';
+import { WidgetViewType } from '../../dashboard-share/base/widget-view-type';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: "dashboard-designer",
-  templateUrl: "dashboard-designer.component.html",
-  styleUrls: ["dashboard-designer.component.css"]
+  selector: 'dashboard-designer',
+  templateUrl: 'dashboard-designer.component.html',
+  styleUrls: ['dashboard-designer.component.css'],
 })
 export class DashboardDesignerComponent implements OnInit, CommandHost {
-  change: Observable<any>;
+  change$: Observable<any>;
 
   selectedRow: DashboardRow;
   _rows: DashboardRow[] = [];
@@ -30,7 +30,7 @@ export class DashboardDesignerComponent implements OnInit, CommandHost {
     return this._rows;
   }
 
-  @ViewChild("importFile", { static: false })
+  @ViewChild('importFile', { static: false })
   importFile: ElementRef<any>;
 
   constructor(
@@ -41,7 +41,7 @@ export class DashboardDesignerComponent implements OnInit, CommandHost {
   ngOnInit() {}
 
   processCommand(cmd: CommandInfo) {
-    if (cmd.commandKey === "add") {
+    if (cmd.commandKey === 'add') {
       const newRow = new DashboardRow(cmd.commandData || 1);
       if (this.selectedRow) {
         const pos = this.rows.indexOf(this.selectedRow);
@@ -49,11 +49,11 @@ export class DashboardDesignerComponent implements OnInit, CommandHost {
       } else {
         this.rows.push(newRow);
       }
-    } else if (cmd.commandKey === "import") {
+    } else if (cmd.commandKey === 'import') {
       this.importFile.nativeElement.click();
-    } else if (cmd.commandKey === "export") {
+    } else if (cmd.commandKey === 'export') {
       this.export();
-    } else if (cmd.commandKey === "importSample") {
+    } else if (cmd.commandKey === 'importSample') {
       this.httpClient.get(`assets/samples/1.json`).subscribe((result: any) => {
         this.rows = result.rows;
       });
@@ -73,25 +73,25 @@ export class DashboardDesignerComponent implements OnInit, CommandHost {
 
   export() {
     const data = {
-      rows: this.rows
+      rows: this.rows,
     };
     const blob = new Blob([JSON.stringify(data)], {
-      type: "application/octet-stream"
+      type: 'application/octet-stream',
     });
-    saveAs(blob, `${"data"}.json`);
+    saveAs(blob, `${'data'}.json`);
   }
 
   import(e) {
     if (e.target.files[0]) {
       const that = this;
       const reader = new FileReader();
-      reader.readAsText(e.target.files[0], "UTF-8");
-      reader.onload = evt => {
+      reader.readAsText(e.target.files[0], 'UTF-8');
+      reader.onload = (evt) => {
         const newModel = JSON.parse((evt.target as any).result)
           .rows as DashboardRow[];
         this.rows = newModel;
       };
-      reader.onerror = evt => {};
+      reader.onerror = (evt) => {};
     }
   }
   applyComponentTypes(rows: DashboardRow[]) {

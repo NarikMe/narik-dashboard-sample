@@ -4,9 +4,9 @@ import { WidgetView } from "../../../dashboard-share/base/widget-view";
 
 import { colorSets } from "@swimlane/ngx-charts";
 import * as shape from "d3-shape";
-import { DynamicForm } from "@narik/core";
+import { DynamicComponent } from "@narik/core";
 
-@DynamicForm("ChartWidgetViewComponent")
+@DynamicComponent("ChartWidgetViewComponent")
 @Component({
   templateUrl: "./chart-widget-view.component.html",
   styleUrls: ["chart-widget-view.component.scss"],
